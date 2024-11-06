@@ -36,7 +36,7 @@
     function buttonClick() {
       let timestamp = getTimestamp();
       formatChange();
-      setCookie(timestamp, "true",1);
+      setCookie(timestamp, "true", 7);
       fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
       console.log("A new player has played.");
 
@@ -73,7 +73,7 @@
       } else if (cookie == "false") {
         console.log("Changing your mind?");
       } else {
-        notifyLoad(timestamp);
+        notifyLoad(getTimestamp());
       }
 
       let uuid = getCookie("uuid");
