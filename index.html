@@ -1,23 +1,27 @@
-  <!doctype html>
+  <!DOCTYPE html>
   <head>
     <title>Button Corp</title>
+    <link rel="stylesheet" href="./styles.css"/>
   </head>
   <body onload="evalCookie();">
-    <h1> Welcome to ButtonCorp </h1>
+  <div class="main-content">
+    <h1> Today's button </h1>
     <p>
-    <button id="button" onclick="buttonClick()">You get a pet cat...<br>but a squirrel becomes sentient. It doesn't know who you are, but if it ever sees you, it will attempt to end your life.</button>
+      You get a pet cat...<br>but a squirrel becomes sentient. It doesn't know who you are, but if it ever sees you, it will attempt to end your life.
     </p>
+    <button class="button" onclick="buttonClick()">Press me!</button>
+  </div>
   </body>
   
 
 
   <script>
     function formatChange() {
-      document.getElementById("button").style.color = "red";
-      
+      document.getElementsByClassName("button")[0].classList.toggle("pressed")
+      document.getElementsByClassName("button")[0].textContent = "Pressed"
 
       // mister owen do not touch this below
-      document.getElementById("button").disabled = true;
+      document.getElementsByClassName("button")[0].disabled = true;
     }
 
     function buttonClick() {
@@ -26,6 +30,7 @@
       setCookie(timestamp, "true",1);
       fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
       console.log("A new player has played.");
+
   }
     function setCookie(cname, cvalue, cdays) {
       const d = new Date();
