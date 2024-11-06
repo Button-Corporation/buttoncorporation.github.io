@@ -8,15 +8,10 @@
     <button id="button" onclick="buttonClick()">You get a pet cat...<br>but a squirrel becomes sentient. It doesn't know who you are, but if it ever sees you, it will attempt to end your life.</button>
     </p>
   </body>
-  <script>
-    function buttonClick() {
-      let timestamp = 1730878775;
-      formatChange();
-      setCookie(timestamp, "true",1);
-      fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
-      console.log("A new player has played.");
-  }
+  
 
+
+  <script>
     function formatChange() {
       document.getElementById("button").style.color = "red";
       
@@ -25,13 +20,19 @@
       document.getElementById("button").disabled = true;
     }
 
+    function buttonClick() {
+      let timestamp = 1730878775;
+      formatChange();
+      setCookie(timestamp, "true",1);
+      fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
+      console.log("A new player has played.");
+  }
     function setCookie(cname, cvalue, cdays) {
       const d = new Date();
       d.setTime(d.getTime() + (cdays * 24 * 60 * 60 * 1000));
       let expires = "expires=" + d.toUTCString();
       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-
     function getCookie(cname) {
       let name = cname + "=";
       let decodedCookie = decodeURIComponent(document.cookie);
@@ -47,7 +48,6 @@
       }
       return "";
     }
-
     function evalCookie() {
       let timestamp = 1730878775;
       let cookie = getCookie(timestamp);
@@ -63,7 +63,6 @@
         setCookie("uuid", id, 365);
       }
     }
-
     function notifyLoad(timestamp) {
       setCookie(timestamp, false, 365);
       fetch("https://api.buttoncorp.org/open/" + getCookie("uuid") + "/" + timestamp);
