@@ -10,7 +10,7 @@
   </body>
   <script>
     function buttonClick() {
-      let timestamp = 1730787645;
+      let timestamp = 1730878775;
       formatChange();
       setCookie(timestamp, "true",1);
       fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
@@ -49,7 +49,7 @@
     }
 
     function evalCookie() {
-      let timestamp = 1730787645;
+      let timestamp = 1730878775;
       let cookie = getCookie(timestamp);
       if (cookie != "") {
         formatChange();
