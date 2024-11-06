@@ -34,7 +34,7 @@
     }
 
     function buttonClick() {
-      let timestamp = 1730878775;
+      let timestamp = getTimestamp();
       formatChange();
       setCookie(timestamp, "true",1);
       fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
@@ -62,11 +62,16 @@
       }
       return "";
     }
+    function getTimestamp() {
+      return 1730922959;
+    }
+
     function evalCookie() {
-      let timestamp = 1730878775;
-      let cookie = getCookie(timestamp);
-      if (cookie != "") {
+      let cookie = getCookie(getTimestamp());
+      if (cookie == "true") {
         formatChange();
+      } else if (cookie == "false") {
+        console.log("Changing your mind?");
       } else {
         notifyLoad(timestamp);
       }
