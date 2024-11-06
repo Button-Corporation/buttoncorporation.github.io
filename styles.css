@@ -23,11 +23,22 @@ html{
     color: #28262C;
 }
 
-/* Add a black background color to the top navigation */
+.topnav ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  display:inline-block;
+  vertical-align:top;
+}
+
 .topnav {
   background-color: #28262C;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+}
+
+.topnav img {
+    padding: 0px 8px;
 }
 
 .topnav a {
