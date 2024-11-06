@@ -67,6 +67,12 @@
     }
 
     function evalCookie() {
+      let uuid = getCookie("uuid");
+      if (uuid == "") {
+        const id = window.crypto.randomUUID();
+        setCookie("uuid", id, 365);
+      }
+
       let cookie = getCookie(getTimestamp());
       if (cookie == "true") {
         formatChange();
@@ -74,12 +80,6 @@
         console.log("Changing your mind?");
       } else {
         notifyLoad(getTimestamp());
-      }
-
-      let uuid = getCookie("uuid");
-      if (uuid == "") {
-        const id = window.crypto.randomUUID();
-        setCookie("uuid", id, 365);
       }
     }
     function notifyLoad(timestamp) {
