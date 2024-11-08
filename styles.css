@@ -32,17 +32,17 @@ html{
 }
 
 .topnav ul {
-  padding: 0px;
-  margin: 0px;
-  text-align: center;
-  display:inline-block;
-  vertical-align:top;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+	display:inline-block;
+	vertical-align:top;
 }
 
 .topnav {
-  background-color: #28262C;
-  font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
+	background-color: #28262C;
+	font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
 }
 
 .topnav img {
@@ -50,25 +50,27 @@ html{
 }
 
 .topnav a {
-  float: left;
-  color: #FF6F59;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
+	float: left;
+	color: #FF6F59;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
 }
 
 .topnav a:hover {
-  background-color: #529573;
-  color: #28262C;
+	background-color: #529573;
+	color: #28262C;
 }
 
 .topnav a.active {
-  background-color: #FF6F59;
-  color: white;
+	background-color: #FF6F59;
+	color: white;
 }
 
-.ButtonBucksCounter
+.ButtonBucksCounter {
+	
+}
 
 .main-content{
 	margin: 25vh auto;
