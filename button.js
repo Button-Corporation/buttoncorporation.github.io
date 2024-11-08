@@ -72,7 +72,9 @@ function DoSpin() {
 function CheckWinner(x, y, z) {
 	// Checks for 3 Peepos
 	// - Owen
-	if (x === 0 && y === 0 && z === 0) {/*do something special*/}; 
+	if (x === 0 && y === 0 && z === 0) {
+		addButtonBucks(99)
+	}; 
 
 	// Checks if you win at all
 	// - Owen
