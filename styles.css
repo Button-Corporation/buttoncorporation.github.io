@@ -174,7 +174,6 @@ html{
     display: flex;
     width: fit-content;
     margin: auto auto;
-    align-items: center;
     gap: 10px;
     color:#FF6F59;
 }
