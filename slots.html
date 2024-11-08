@@ -34,6 +34,7 @@
         <script>
             var Spin = new Audio("Expand 2.mp3");
             var Click = new Audio("Click 1.mp3");
+            var UnclickSound = new Audio("Big Click 1.mp3");
             var Music = new Audio("Slots.wav");
             var Win = new Audio("Win.wav");
             var NumberOfWins = 0
@@ -66,13 +67,14 @@
                     Click.play()
                     CheckWinner(slotImage1,slotImage2,slotImage3);
                 }, 1500);
+                setTimeout(function(){
+                    Unclick(slotImage1,slotImage2,slotImage3);
+                    UnclickSound.play()
+                }, 2000);
                 
             }
             
             function CheckWinner(x,y,z) {
-                document.getElementsByClassName("slotbutton")[0].disabled = false;
-                document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
-                document.getElementsByClassName("slotbutton")[0].textContent = "Button"
                 if (x == y && x == z) {
                     // alert('YOU WIN!');
                     Win.play()
@@ -81,5 +83,20 @@
                 }
                 else {
                 }
+            }
+            function Unclick() {
+                document.getElementsByClassName("slotbutton")[0].disabled = false;
+                document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
+                document.getElementsByClassName("slotbutton")[0].textContent = "Button"
+            }
+            document.body.onkeyup = function(e) {
+              if (e.key == " " ||
+                  e.code == "Space" ||      
+                  e.keyCode == 32      
+              ) {
+                if (document.getElementsByClassName("slotbutton")[0].disabled==false){
+                    DoSpin()
+                }
+              }
             }
         </script>   
