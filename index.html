@@ -1,93 +1,25 @@
-  <!DOCTYPE html>
-  <head>
-    <title>Button Corp</title>
-    <link rel="stylesheet" href="./styles.css"/>
-    <link rel="icon" href="logo.png">
-  </head>
-  <body onload="evalCookie();">
-   <div class="topnav">
-    <img style="width:45px;height:45px;" src="DarkLogo.png">
-    <ul>
-      <a class="active" href="/">Daily Button</a>
-      <a href="about">About Us</a>
-      <a href="slots">Slots</a>
-      <a href="mailto:contact@buttoncorp.org">Contact</a>
-    </ul>
-  </div>
-  <div class="main-content">
-    <h1> Button of the Day </h1>
-    <p>
-      You gain the ability to fly planes but...<br>Jaywalking is now a felony
-    </p>
-    <button class="button" onclick="buttonClick()">Button</button>
-  </div>
-  </body>
-  
-<!-- hi masterminds :3 -->
-
-  <script>
-    function formatChange() {
-      document.getElementsByClassName("button")[0].classList.toggle("pressed")
-      document.getElementsByClassName("button")[0].textContent = "Pressed"
-
-      // mister owen do not touch this below
-      document.getElementsByClassName("button")[0].disabled = true;
-    }
-
-    function buttonClick() {
-      let timestamp = getTimestamp();
-      formatChange();
-      setCookie(timestamp, "true", 7);
-      fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
-      console.log("A new player has played.");
-
-  }
-    function setCookie(cname, cvalue, cdays) {
-      const d = new Date();
-      d.setTime(d.getTime() + (cdays * 24 * 60 * 60 * 1000));
-      let expires = "expires=" + d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-    function getCookie(cname) {
-      let name = cname + "=";
-      let decodedCookie = decodeURIComponent(document.cookie);
-      let ca = decodedCookie.split(';');
-      for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-          return c.substring(name.length, c.length);
-        }
-      }
-      return "";
-    }
-    function getTimestamp() {
-      return 1731041837;
-    }
-
-    function evalCookie() {
-      let uuid = getCookie("uuid");
-      if (uuid == "") {
-        const id = window.crypto.randomUUID();
-        setCookie("uuid", id, 365);
-      }
-
-      let cookie = getCookie(getTimestamp());
-      if (cookie == "true") {
-        formatChange();
-      } else if (cookie == "false") {
-        console.log("Changing your mind?");
-      } else {
-        notifyLoad(getTimestamp());
-      }
-    }
-    function notifyLoad(timestamp) {
-      setCookie(timestamp, false, 365);
-      fetch("https://api.buttoncorp.org/open/" + getCookie("uuid") + "/" + timestamp);
-      console.log("A new player has entered.");
-    }
-    
-  </script>
-  </html>
+<!DOCTYPE html>
+<head>
+	<title>Button Corp</title>
+	<link rel="stylesheet" href="./styles.css"/>
+	<link rel="icon" href="logo.png">
+	<script src="button.js"></script>
+</head>
+<body onload="evalCookie();">
+	<div class="topnav">
+		<img style="width:45px;height:45px;" src="DarkLogo.png">
+		<ul>
+			<a class="active" href="/">Daily Button</a>
+			<a href="about">About Us</a>
+			<a href="slots">Slots</a>
+			<a href="mailto:contact@buttoncorp.org">Contact</a>
+		</ul>
+	</div>
+	<div class="main-content">
+		<h1> Button of the Day </h1>
+		<p>
+			You gain the ability to fly planes but...<br>Jaywalking is now a felony
+		</p>
+		<button class="button" onclick="buttonClick()">Button</button>
+	</div>
+</body>

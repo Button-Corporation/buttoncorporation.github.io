@@ -1,34 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Righteous&family=Yeseva+One&display=swap');
 *{
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 @keyframes dropIn {
-    from {
-        transform: translateX(500px);
-        opacity: 0;
-    }
-    to {
-        transform:translateX(0);
-        opacity: 1;
-    }
+	from {
+		transform: translateX(500px);
+		opacity: 0;
+	}
+	to {
+		transform:translateX(0);
+		opacity: 1;
+	}
 }
 
 html{
-    background: linear-gradient(135deg, #DDFFF7 0%, #E2A0FF 100%);
-    overflow-x: hidden;
-    width: 100%;
-    height: 100%;
-    color: #28262C;
+	background: linear-gradient(135deg, #DDFFF7 0%, #E2A0FF 100%);
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	color: #28262C;
 }
 
 .slotsfull {
-    background: #28262C;
-    overflow-x: hidden;
-    width: 100%;
-    height: 100%;
-    color: #28262C;
+	background: #28262C;
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	color: #28262C;
 }
 
 .topnav ul {
@@ -46,7 +46,7 @@ html{
 }
 
 .topnav img {
-    padding: 0px 8px;
+	padding: 0px 8px;
 }
 
 .topnav a {
@@ -69,114 +69,114 @@ html{
 }
 
 .main-content{
-    margin: 25vh auto;
-    width: fit-content;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+	margin: 25vh auto;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .main-content h1{
-    margin-bottom: 5vh;
-    font-size: 50px;
+	margin-bottom: 5vh;
+	font-size: 50px;
 }
 
 .main-content p{
-    margin-bottom: 10vh;
-    font-size: 22px;
+	margin-bottom: 10vh;
+	font-size: 22px;
 }
 
 .slots-content{
-    margin: 2vh auto;
-    width: fit-content;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+	margin: 2vh auto;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .slots{
-    border-radius: 25px;
-    background-color: #62a583;
-    margin: auto auto;
-    padding: 2vh 2vh;
-    width: fit-content;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
+	border-radius: 25px;
+	background-color: #62a583;
+	margin: auto auto;
+	padding: 2vh 2vh;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .about-content{
-    margin: 25vh;
-    width: fit-content;
-    font-family: 'Montserrat', sans-serif;
+	margin: 25vh;
+	width: fit-content;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .about-content h1{
-    margin-bottom: 5vh;
-    font-size: 50px;
+	margin-bottom: 5vh;
+	font-size: 50px;
 }
 
 .about-content p{
-    margin-bottom: 10vh;
-    font-size: 22px;
+	margin-bottom: 10vh;
+	font-size: 22px;
 }
 
 .button{
-    background-color: #529573;
-    width: 30vw;
-    height: 20vh;
-    border-style: none;
-    border-radius: 75px;
-    box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
-    cursor: pointer;
-    font-size: 50px;
-    color: #eeeeee;
-    animation: dropIn 0.5s ease forwards;
+	background-color: #529573;
+	width: 30vw;
+	height: 20vh;
+	border-style: none;
+	border-radius: 75px;
+	box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
+	cursor: pointer;
+	font-size: 50px;
+	color: #eeeeee;
+	animation: dropIn 0.5s ease forwards;
 }
 
 .button:hover{
-    background-color: #62a583;
+	background-color: #62a583;
 }
 
 .slotbutton{
-    background-color: #FF6F59;
-    margin: 5vh;
-    width: 30vw;
-    height: 20vh;
-    border-style: none;
-    border-radius: 75px;
-    box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
-    cursor: pointer;
-    font-size: 50px;
-    color: #eeeeee;
-    animation: dropIn 0.5s ease forwards;
+	background-color: #FF6F59;
+	margin: 5vh;
+	width: 30vw;
+	height: 20vh;
+	border-style: none;
+	border-radius: 75px;
+	box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
+	cursor: pointer;
+	font-size: 50px;
+	color: #eeeeee;
+	animation: dropIn 0.5s ease forwards;
 }
 
 .slotbutton:hover{
-    background-color: #FF7F69;
+	background-color: #FF7F69;
 }
 
 .pressed{
-    -webkit-box-shadow: inset 0px 0px 15px #FF6F59;
-    -moz-box-shadow: inset 0px 0px 15px #FF6F59;
-    box-shadow: inset 0px 0px 15px #FF6F59;
-    outline: none;
-    background-color: #28262C;
+	-webkit-box-shadow: inset 0px 0px 15px #FF6F59;
+	-moz-box-shadow: inset 0px 0px 15px #FF6F59;
+	box-shadow: inset 0px 0px 15px #FF6F59;
+	outline: none;
+	background-color: #28262C;
 }
 
 .pressed:hover{
-    background-color: #28262C;
-    cursor: unset;
+	background-color: #28262C;
+	cursor: unset;
 }
 
 .wintext{
-    color: #FF6F59;
+	color: #FF6F59;
 }
 
 .audio-container {
-    display: flex;
-    width: fit-content;
-    margin: auto auto;
-    gap: 10px;
-    color:#FF6F59;
+	display: flex;
+	width: fit-content;
+	margin: auto auto;
+	gap: 10px;
+	color:#FF6F59;
 }
 .volume-slider {
-    width: 150px;
+	width: 150px;
 }
