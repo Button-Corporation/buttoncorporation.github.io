@@ -51,6 +51,10 @@ html{
 	padding: 0px 8px;
 }
 
+.bucky {
+	width: 25vh;
+}
+
 .topnav a {
 	float: left;
 	color: #FF6F59;
@@ -58,10 +62,6 @@ html{
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 20px;
-}
-
-.bucky {
-	float: right;
 }
 
 .topnav a:hover {
