@@ -79,6 +79,7 @@ function CheckWinner(x, y, z) {
 	if (x == y && x == z) {
 		Win.play()
 		NumberOfWins = NumberOfWins + 1
+		addButtonBucks(1)
 		document.getElementsByClassName("wintext")[0].textContent = "Session Wins: " + NumberOfWins
 	}
 }
@@ -128,15 +129,31 @@ function getCookie(cname) {
 	}
 	return "";
 }
+
 function getButtonBucks() {
 	let ButtonBucks=getCookie("ButtonBucks")
+	console.log(ButtonBucks)
 	if (ButtonBucks=="") {
 		return 0
 	}
 	else {
-		return ButtonBucks
+		return Number(ButtonBucks)
 	}
 }
+
+function addButtonBucks(number) {
+	ButtonBucks=getButtonBucks()
+	// console.log(ButtonBucks)
+	ButtonBucks+=number
+
+	// Button Bucks will expire after 1 year of inactivity I guess
+	setCookie("ButtonBucks",String(ButtonBucks),365)
+
+	document.getElementsByClassName("bucky")[0].textContent = "Button Bucks: " + ButtonBucks
+}
+
+addButtonBucks(0)
+
 function getTimestamp() {
 	return 1731041837;
 }
