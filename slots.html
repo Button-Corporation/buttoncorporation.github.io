@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-US" class="slotsfull">
+<div>
+		<script>
+			var Spin = new Audio("Expand 2.mp3");
+			var Click = new Audio("Click 1.mp3");
+			var Music = new Audio("Slots.wav");
+			var Win = new Audio("Win.wav");
+			var NumberOfWins = 0
+			Music.loop=true
+			function DoSpin() {
+				Music.play()
+				document.getElementsByClassName("slotbutton")[0].disabled = true;
+				document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
+     			document.getElementsByClassName("slotbutton")[0].textContent = "Pressed"
+				
+				var slotImages = ["1.png","2.png","3.png"];
+				var slotImage1 = Math.floor((Math.random() * 3));
+				var slotImage2 = Math.floor((Math.random() * 3));
+				var slotImage3 = Math.floor((Math.random() * 3));
+				document.getElementById('SlotImage1').src = "Mystery.gif";
+				document.getElementById('SlotImage2').src = "Mystery.gif";
+				document.getElementById('SlotImage3').src = "Mystery.gif";
+				Spin.play()
+
+				setTimeout(function(){
+   					document.getElementById('SlotImage1').src = slotImages[slotImage1];
+   					Click.play()
+				}, 500);
+				setTimeout(function(){
+   					document.getElementById('SlotImage2').src = slotImages[slotImage2];
+   					Click.play()
+				}, 1000);
+				setTimeout(function(){
+   					document.getElementById('SlotImage3').src = slotImages[slotImage3];
+   					Click.play()
+   					CheckWinner(slotImage1,slotImage2,slotImage3);
+				}, 1500);
+				
+			}
+			
+			function CheckWinner(x,y,z) {
+				document.getElementsByClassName("slotbutton")[0].disabled = false;
+				document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
+     			document.getElementsByClassName("slotbutton")[0].textContent = "Button"
+				if (x == y && x == z) {
+					// alert('YOU WIN!');
+					Win.play()
+					NumberOfWins=NumberOfWins+1
+					document.getElementsByClassName("wintext")[0].textContent = "Wins: " + NumberOfWins
+				}
+				else {
+				}
+			}
+		</script>	
+<head>
+    <title>Button Corp</title>
+    <link rel="stylesheet" href="./styles.css"/>
+    <link rel="icon" href="logo.png">
+  </head>
+  <body>
+   	<div class="topnav">
+    <img style="width:45px;height:45px;" src="DarkLogo.png">
+    <ul>
+      <a href="/">Daily Button</a>
+      <a href="about">About Us</a>
+      <a class="active" href="/">Slots</a>
+      <a href="mailto:contact@buttoncorp.org">Contact</a>
+    </ul>
+  </div>
+  <div class="slots-content">
+    <img src="Slots Logo.png">
+    <div class="slots">
+	    	<td><img id="SlotImage1" src="1.png" alt="Slot Image #1" style="Width:200px; Height:200px;"></td>
+			<td><img id="SlotImage2" src="2.png" alt="Slot Image #2" style="Width:200px; Height:200px;"></td>
+			<td><img id="SlotImage3" src="3.png" alt="Slot Image #3" style="Width:200px; Height:200px;"></td>
+    </div>
+    <h1 class="wintext">Wins: 0</h1>
+   	<button class="slotbutton" onclick="DoSpin()">Button</button>
+    	
+  </div>
+  </body>
+</div>
+</Html>

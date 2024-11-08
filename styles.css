@@ -23,6 +23,14 @@ html{
     color: #28262C;
 }
 
+.slotsfull {
+    background: #28262C;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    color: #28262C;
+}
+
 .topnav ul {
   padding: 0px;
   margin: 0px;
@@ -77,6 +85,23 @@ html{
     font-size: 22px;
 }
 
+.slots-content{
+    margin: 5vh auto;
+    width: fit-content;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slots{
+    border-radius: 25px;
+    background-color: #62a583;
+    margin: auto auto;
+    padding: 2vh 2vh;
+    width: fit-content;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .about-content{
     margin: 25vh;
     width: fit-content;
@@ -110,6 +135,24 @@ html{
     background-color: #62a583;
 }
 
+.slotbutton{
+    background-color: #FF6F59;
+    margin: 5vh;
+    width: 30vw;
+    height: 20vh;
+    border-style: none;
+    border-radius: 75px;
+    box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
+    cursor: pointer;
+    font-size: 50px;
+    color: #eeeeee;
+    animation: dropIn 0.5s ease forwards;
+}
+
+.slotbutton:hover{
+    background-color: #FF7F69;
+}
+
 .pressed{
     -webkit-box-shadow: inset 0px 0px 15px #FF6F59;
     -moz-box-shadow: inset 0px 0px 15px #FF6F59;
@@ -121,4 +164,8 @@ html{
 .pressed:hover{
     background-color: #28262C;
     cursor: unset;
+}
+
+.wintext{
+    color: #FF6F59;
 }
