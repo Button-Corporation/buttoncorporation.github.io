@@ -169,3 +169,13 @@ html{
 .wintext{
     color: #FF6F59;
 }
+
+.audio-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:#FF6F59;
+}
+.volume-slider {
+    width: 150px;
+}
