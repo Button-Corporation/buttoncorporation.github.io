@@ -43,6 +43,8 @@ html{
 	background-color: #28262C;
 	font-family: 'Montserrat', sans-serif;
 	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
 }
 
 .topnav img {
@@ -56,6 +58,10 @@ html{
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 20px;
+}
+
+.bucky {
+	float: right;
 }
 
 .topnav a:hover {

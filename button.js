@@ -61,11 +61,11 @@ function DoSpin() {
 		CheckWinner(slotImage1, slotImage2, slotImage3);
 	}, 1500);
 	setTimeout(function () {
-		// Unpresses the button after 2000 ms
+		// Unpresses the button after 1750 ms
 		// - Owen
 		Unclick();
 		UnclickSound.play()
-	}, 2000);
+	}, 1750);
 
 }
 
