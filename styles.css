@@ -68,11 +68,7 @@ html{
 	color: white;
 }
 
-.ButtonBucksCounter {
-	
-}
-
-.main-content{
+.main-content {
 	margin: 25vh auto;
 	width: fit-content;
 	text-align: center;
@@ -96,7 +92,7 @@ html{
 	font-family: 'Montserrat', sans-serif;
 }
 
-.slots{
+.slots {
 	border-radius: 25px;
 	background-color: #62a583;
 	margin: auto auto;
@@ -106,7 +102,7 @@ html{
 	font-family: 'Montserrat', sans-serif;
 }
 
-.about-content{
+.about-content {
 	margin: 25vh;
 	width: fit-content;
 	font-family: 'Montserrat', sans-serif;
