@@ -47,6 +47,11 @@ html{
 	justify-content: space-between;
 }
 
+.topimagediv {
+	width: 25vh;
+	text-align: left;
+}
+
 .topnav img {
 	padding: 0px 8px;
 }
