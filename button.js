@@ -79,7 +79,7 @@ function CheckWinner(x, y, z) {
 	if (x == y && x == z) {
 		Win.play()
 		NumberOfWins = NumberOfWins + 1
-		document.getElementsByClassName("wintext")[0].textContent = "Wins: " + NumberOfWins
+		document.getElementsByClassName("wintext")[0].textContent = "Session Wins: " + NumberOfWins
 	}
 }
 
@@ -90,41 +90,6 @@ function Unclick() {
 	document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
 	document.getElementsByClassName("slotbutton")[0].textContent = "Button"
 }
-
-window.addEventListener('load', function () {
-	// Does the music and sound sliders
-	// - Owen
-	musicSlider = document.getElementById('musicSlider');
-	musicSlider.addEventListener('input', function() {
-		Music.volume = this.value;
-	});
-
-	sfxSlider = document.getElementById('sfxSlider');
-	sfxSlider.addEventListener('input', function() {
-		Spin.volume = this.value;
-		Click.volume = this.value;
-		UnclickSound.volume = this.value;
-		Win.volume = this.value;
-	});
-	Music.volume = musicSlider.value;
-	Spin.volume = sfxSlider.value;
-	Click.volume = sfxSlider.value;
-	UnclickSound.volume = sfxSlider.value;
-	Win.volume = sfxSlider.value;
-
-	document.body.onkeyup = function (e) {
-		// Makes the space button also roll the slots
-		// - Owen
-		if (e.key == " " ||
-			e.code == "Space" ||
-			e.keyCode == 32
-		) {
-			if (document.getElementsByClassName("slotbutton")[0].disabled == false) {
-				DoSpin()
-			}
-		}
-	}
-})
 
 function formatChange() {
 	document.getElementsByClassName("button")[0].classList.toggle("pressed")
@@ -162,6 +127,15 @@ function getCookie(cname) {
 	}
 	}
 	return "";
+}
+function getButtonBucks() {
+	let ButtonBucks=getCookie("ButtonBucks")
+	if (ButtonBucks=="") {
+		return 0
+	}
+	else {
+		return ButtonBucks
+	}
 }
 function getTimestamp() {
 	return 1731041837;

@@ -1,33 +1,70 @@
 <!DOCTYPE html>
 <head>
-    <title>Button Corp</title>
-    <link rel="stylesheet" href="./styles.css"/>
-    <link rel="icon" href="logo.png">
-    <script src="button.js"></script>
-  </head>
-  <body class="slotsfull">
-    <div class="topnav">
-        <img style="width:45px;height:45px;" src="DarkLogo.png">
-        <ul>
-            <a href="/">Daily Button</a>
-            <a href="about">About Us</a>
-            <a class="active" href="slots">Slots</a>
-            <a href="mailto:contact@buttoncorp.org">Contact</a>
-        </ul>
-  </div>
-      <div class="slots-content">
-        <img src="Slots Logo.png">
-        <div class="slots">
-            <td><img id="SlotImage1" src="1.png" alt="Slot Image #1" style="Width:200px; Height:200px;"></td>
-            <td><img id="SlotImage2" src="2.png" alt="Slot Image #2" style="Width:200px; Height:200px;"></td>
-            <td><img id="SlotImage3" src="3.png" alt="Slot Image #3" style="Width:200px; Height:200px;"></td>
-        </div>
-        <h1 class="wintext">Wins: 0</h1>
-        <button class="slotbutton" onclick="DoSpin()">Button</button>
-        <div class="audio-container">
-            <!-- Volume Slider -->
-            <p color="white">   Music:</p><input type="range" id="musicSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
-            <p>Sounds:</p><input type="range" id="sfxSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
-        </div>
-      </div>
-  </body>
+	<title>Button Corp</title>
+	<link rel="stylesheet" href="./styles.css"/>
+	<link rel="icon" href="logo.png">
+	<script src="button.js"></script>
+</head>
+<body class="slotsfull">
+	<div class="topnav">
+		<img style="width:45px;height:45px;" src="DarkLogo.png">
+		<ul>
+			<a href="/">Daily Button</a>
+			<a href="about">About Us</a>
+			<a class="active" href="slots">Slots</a>
+			<a href="mailto:contact@buttoncorp.org">Contact</a>
+			<a class="ButtonBucksCounter"></a>
+		</ul>
+</div>
+	  <div class="slots-content">
+		<img src="Slots Logo.png">
+		<div class="slots">
+			<td><img id="SlotImage1" src="1.png" alt="Slot Image #1" style="Width:200px; Height:200px;"></td>
+			<td><img id="SlotImage2" src="2.png" alt="Slot Image #2" style="Width:200px; Height:200px;"></td>
+			<td><img id="SlotImage3" src="3.png" alt="Slot Image #3" style="Width:200px; Height:200px;"></td>
+		</div>
+		<h1 class="wintext">Session Wins: 0</h1>
+		<button class="slotbutton" onclick="DoSpin()">Button</button>
+		<div class="audio-container">
+			<!-- Volume Slider -->
+			<p color="white">   Music:</p><input type="range" id="musicSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+			<p>Sounds:</p><input type="range" id="sfxSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
+		</div>
+	  </div>
+</body>
+<script>
+window.addEventListener('load', function () {
+	// Does the music and sound sliders
+	// - Owen
+	musicSlider = document.getElementById('musicSlider');
+	musicSlider.addEventListener('input', function() {
+		Music.volume = this.value;
+	});
+
+	sfxSlider = document.getElementById('sfxSlider');
+	sfxSlider.addEventListener('input', function() {
+		Spin.volume = this.value;
+		Click.volume = this.value;
+		UnclickSound.volume = this.value;
+		Win.volume = this.value;
+	});
+	Music.volume = musicSlider.value;
+	Spin.volume = sfxSlider.value;
+	Click.volume = sfxSlider.value;
+	UnclickSound.volume = sfxSlider.value;
+	Win.volume = sfxSlider.value;
+
+	document.body.onkeyup = function (e) {
+		// Makes the space button also roll the slots
+		// - Owen
+		if (e.key == " " ||
+			e.code == "Space" ||
+			e.keyCode == 32
+		) {
+			if (document.getElementsByClassName("slotbutton")[0].disabled == false) {
+				DoSpin()
+			}
+		}
+	}
+})
+</script>
