@@ -156,7 +156,7 @@ function getCookie(cname) {
 }
 
 function buyItem(Name) {
-	if (getButtonBucks()>=ItemPrices[Name]) {
+	if (getButtonBucks()>=ItemPrices[Name] && hasItem(Name)==false) {
 		UnclickSound.play();
 		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
 		addButtonBucks(-ItemPrices[Name]);
@@ -167,7 +167,6 @@ function buyItem(Name) {
 function updateShop() {
 	for (var i = Items.length - 1; i >= 0; i--) {
 		if (hasItem(Items[i])) {
-			document.getElementsByClassName("Item: "+Items[i])[0].disabled = true;
 			document.getElementsByClassName("Item: "+Items[i])[0].src="Items/Purchased.png";
 		}
 	}
