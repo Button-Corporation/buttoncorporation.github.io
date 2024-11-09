@@ -12,12 +12,8 @@ var Items=[
 	"Burn",
 	]
 var ItemPrices = {
-	"Autoslots":15,
+	"Autoslots":100,
 	"Burn":100,
-};
-var ItemCooldowns = {
-	"Autoslots":0.00069444444,
-	"Burn":0.00069444444,
 };
 
 function DoSpin() {
@@ -156,10 +152,10 @@ function getCookie(cname) {
 
 function buyItem(Name) {
 	if (getButtonBucks()>=ItemPrices[Name]) {
-		UnclickSound.play()
-		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
-		addButtonBucks(-ItemPrices[Name])
-		updateShop()
+		UnclickSound.play();
+		setCookie("Item: "+Name, "true", 1);
+		addButtonBucks(-ItemPrices[Name]);
+		updateShop();
 	}
 }
 
@@ -167,7 +163,7 @@ function updateShop() {
 	for (var i = Items.length - 1; i >= 0; i--) {
 		if (hasItem(Items[i])) {
 			document.getElementsByClassName("Item: "+Items[i])[0].disabled = true;
-			document.getElementsByClassName("Item: "+Items[i])[0].src="Items/Purchased.png"
+			document.getElementsByClassName("Item: "+Items[i])[0].src="Items/Purchased.png";
 		}
 	}
 }
