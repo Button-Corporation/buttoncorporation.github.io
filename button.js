@@ -20,6 +20,7 @@ var ItemCooldowns = {
 	"Burn":0.00694444444,
 };
 
+
 function DoSpin() {
 	// Plays the music
 	// This does nothing if the music is already playing
