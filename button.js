@@ -92,7 +92,7 @@ function DoSpin() {
 		// Tries the autospin if you have the "Autoslots" item
 		// - Owen
 		tryAutoSpin()
-	}, 2333);
+	}, 1900);
 
 }
 
