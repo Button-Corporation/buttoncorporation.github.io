@@ -1,13 +1,24 @@
 var Spin = new Audio("Expand 2.mp3");
 var Click = new Audio("Click 1.mp3");
 var UnclickSound = new Audio("Big Click 1.mp3");
-var Music = new Audio("Slots.wav");
 var Win = new Audio("Win.wav");
 var NumberOfWins = 0
 Music.loop = true
 Music.volume = 0.5;
 var musicSlider;
 var sfxSlider;
+var Items=[
+	"Autoslots",
+	"Burn",
+	]
+var ItemPrices = {
+	"Autoslots":15,
+	"Burn":100,
+};
+var ItemCooldowns = {
+	"Autoslots":0.00069444444,
+	"Burn":0.00069444444,
+};
 
 function DoSpin() {
 	// Plays the music
@@ -65,7 +76,12 @@ function DoSpin() {
 		// - Owen
 		Unclick();
 		UnclickSound.play()
-	}, 1750);
+	}, 1700);
+	setTimeout(function () {
+		// Tries the autospin if you have the "Autoslots" item
+		// - Owen
+		tryAutoSpin()
+	}, 2000-10);
 
 }
 
@@ -92,6 +108,12 @@ function Unclick() {
 	document.getElementsByClassName("slotbutton")[0].disabled = false;
 	document.getElementsByClassName("slotbutton")[0].classList.toggle("pressed")
 	document.getElementsByClassName("slotbutton")[0].textContent = "Button"
+}
+
+function tryAutoSpin() {
+	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false) {
+		DoSpin()
+	}
 }
 
 function formatChange() {
@@ -132,9 +154,30 @@ function getCookie(cname) {
 	return "";
 }
 
+function buyItem(Name) {
+	if (getButtonBucks()>=ItemPrices[Name]) {
+		UnclickSound.play()
+		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
+		addButtonBucks(-ItemPrices[Name])
+		updateShop()
+	}
+}
+
+function updateShop() {
+	for (var i = Items.length - 1; i >= 0; i--) {
+		if (hasItem(Items[i])) {
+			document.getElementsByClassName("Item: "+Items[i])[0].disabled = true;
+			document.getElementsByClassName("Item: "+Items[i])[0].src="Items/Purchased.png"
+		}
+	}
+}
+
+function hasItem(Name) {
+	return getCookie("Item: "+Name)!=""
+}
+
 function getButtonBucks() {
 	let ButtonBucks=getCookie("ButtonBucks")
-	console.log(ButtonBucks)
 	if (ButtonBucks=="") {
 		return 0
 	}
@@ -180,4 +223,9 @@ function notifyLoad(timestamp) {
 	setCookie(timestamp, false, 365);
 	fetch("https://api.buttoncorp.org/open/" + getCookie("uuid") + "/" + timestamp);
 	console.log("A new player has entered.");
+}
+function openShop() {
+	Music.play()
+	document.getElementsByClassName("open-shop-button")[0].hidden = true
+	document.getElementsByClassName("shop-content")[0].hidden = false
 }

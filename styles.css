@@ -113,10 +113,72 @@ html{
 	font-family: 'Montserrat', sans-serif;
 }
 
+.shopbox {
+	border-radius: 25px;
+	background-color: #DDFFF7;
+	margin: auto auto;
+	padding: 2vh 2vh;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .about-content {
 	margin: 25vh;
 	width: fit-content;
 	font-family: 'Montserrat', sans-serif;
+}
+
+.open-shop-button{
+	margin: 2vh auto;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: #ffffff;
+}
+
+.shop-content{
+	margin: 2vh auto;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: #ffffff;
+}
+
+.shop-content h1{
+	margin-bottom: 5vh;
+	font-size: 50px;
+}
+
+.shop-content p{
+	margin-bottom: 10vh;
+	font-size: 22px;
+}
+
+.item {
+	position: relative;
+	display: inline-block;
+}
+
+.item .tooltiptext {
+	visibility: hidden;
+	width: 40vh;
+	background-color: #28262C;
+	color: #ffffff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	height: fit-content;
+
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+	margin-left: -20vh; /* Half of the width */
+}
+
+.item:hover .tooltiptext {
+	visibility: visible;
 }
 
 .about-content h1{
