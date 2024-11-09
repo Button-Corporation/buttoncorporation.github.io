@@ -11,17 +11,17 @@ var sfxSlider;
 var Items=[
 	"Autoslots",
 	"Burn",
-	"Peepo2X",
+	"Peepo",
 	]
 var ItemPrices = {
 	"Autoslots":15,
 	"Burn":100,
-	"Peepo2X":10,
+	"Peepo":10,
 };
 var ItemCooldowns = {
 	"Autoslots":10 /24/60,
 	"Burn":10 /24/60,
-	"Peepo2X":10 /24/60,
+	"Peepo":10 /24/60,
 };
 
 
@@ -43,7 +43,7 @@ function DoSpin() {
 	// - Owen
 	var SlotPattern = [0,1,1,1,2,2,2,3,3,3]
 
-	if (hasItem("Peepo2X")) {
+	if (hasItem("Peepo")) {
 		// Not technically doubled chance, but it's easier to just say "double"
 		// - Owen
 		SlotPattern = [0,0,1,1,1,2,2,2,3,3,3]
