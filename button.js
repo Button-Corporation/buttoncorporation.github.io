@@ -19,9 +19,9 @@ var ItemPrices = {
 	"Peepo":10,
 };
 var ItemCooldowns = {
-	"Autoslots":10 /24/60,
-	"Burn":10 /24/60,
-	"Peepo":10 /24/60,
+	"Autoslots":10.0 /24.0/60.0,
+	"Burn":10.0 /24.0/60.0,
+	"Peepo":10.0 /24.0/60.0,
 };
 
 
