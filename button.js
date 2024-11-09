@@ -16,8 +16,8 @@ var ItemPrices = {
 	"Burn":100,
 };
 var ItemCooldowns = {
-	"Autoslots":0.00069444444,
-	"Burn":0.00069444444,
+	"Autoslots":0.00694444444,
+	"Burn":0.00694444444,
 };
 
 function DoSpin() {
