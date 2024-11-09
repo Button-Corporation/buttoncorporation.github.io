@@ -2,6 +2,7 @@ var Spin = new Audio("Expand 2.mp3");
 var Click = new Audio("Click 1.mp3");
 var UnclickSound = new Audio("Big Click 1.mp3");
 var Win = new Audio("Win.wav");
+var CashSound = new Audio("Cash.wav");
 var NumberOfWins = 0
 Music.loop = true
 Music.volume = 0.5;
@@ -10,14 +11,17 @@ var sfxSlider;
 var Items=[
 	"Autoslots",
 	"Burn",
+	"Peepo2X",
 	]
 var ItemPrices = {
 	"Autoslots":15,
 	"Burn":100,
+	"Peepo2X":10,
 };
 var ItemCooldowns = {
-	"Autoslots":0.00694444444,
-	"Burn":0.00694444444,
+	"Autoslots":10 /24/60,
+	"Burn":10 /24/60,
+	"Peepo2X":10 /24/60,
 };
 
 
@@ -38,6 +42,12 @@ function DoSpin() {
 	// Slot images are named by their number (0 is Peepo)
 	// - Owen
 	var SlotPattern = [0,1,1,1,2,2,2,3,3,3]
+
+	if (hasItem("Peepo2X")) {
+		// Not technically doubled chance, but it's easier to just say "double"
+		// - Owen
+		SlotPattern = [0,0,1,1,1,2,2,2,3,3,3]
+	}
 
 	// Picks a random number from the slot pattern
 	// - Owen
@@ -77,12 +87,12 @@ function DoSpin() {
 		// - Owen
 		Unclick();
 		UnclickSound.play()
-	}, 1700);
+	}, 1750);
 	setTimeout(function () {
 		// Tries the autospin if you have the "Autoslots" item
 		// - Owen
 		tryAutoSpin()
-	}, 2000-10);
+	}, 2333);
 
 }
 
@@ -157,7 +167,7 @@ function getCookie(cname) {
 
 function buyItem(Name) {
 	if (getButtonBucks()>=ItemPrices[Name] && hasItem(Name)==false) {
-		UnclickSound.play();
+		CashSound.play();
 		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
 		addButtonBucks(-ItemPrices[Name]);
 		updateShop();
