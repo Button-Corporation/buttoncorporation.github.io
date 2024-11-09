@@ -12,8 +12,12 @@ var Items=[
 	"Burn",
 	]
 var ItemPrices = {
-	"Autoslots":100,
+	"Autoslots":15,
 	"Burn":100,
+};
+var ItemCooldowns = {
+	"Autoslots":0.00069444444,
+	"Burn":0.00069444444,
 };
 
 function DoSpin() {
@@ -153,7 +157,7 @@ function getCookie(cname) {
 function buyItem(Name) {
 	if (getButtonBucks()>=ItemPrices[Name]) {
 		UnclickSound.play();
-		setCookie("Item: "+Name, "true", 1);
+		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
 		addButtonBucks(-ItemPrices[Name]);
 		updateShop();
 	}
