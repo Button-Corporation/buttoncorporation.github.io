@@ -9,7 +9,7 @@ var sfxSlider;
 var ExpectedButtonBucks = "";
 var Items=[
 	"Autoslots",
-	"AutoslotsEX"
+	"AutoslotsEX",
 	"Burn",
 	"Peepo",
 	"Soul",
