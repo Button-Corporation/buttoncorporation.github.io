@@ -16,7 +16,7 @@ var Items=[
 var ItemPrices = {
 	"Autoslots":25,
 	"Burn":100,
-	"Peepo":150,
+	"Peepo":100,
 };
 var ItemCooldowns = {
 	"Autoslots":10.0 /24.0/60.0,
