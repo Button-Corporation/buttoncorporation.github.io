@@ -4,8 +4,6 @@ var UnclickSound = new Audio("Big Click 1.mp3");
 var Win = new Audio("Win.wav");
 var CashSound = new Audio("Cash.wav");
 var NumberOfWins = 0
-Music.loop = true
-Music.volume = 0.5;
 var musicSlider;
 var sfxSlider;
 var ExpectedButtonBucks = "";
