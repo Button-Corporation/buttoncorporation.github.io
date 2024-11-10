@@ -8,6 +8,7 @@ Music.loop = true
 Music.volume = 0.5;
 var musicSlider;
 var sfxSlider;
+var ExpectedButtonBucks = "";
 var Items=[
 	"Autoslots",
 	"Burn",
@@ -123,7 +124,7 @@ function Unclick() {
 }
 
 function tryAutoSpin() {
-	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false && getCookie("SpinCooldown")=="") {
+	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false && ExpectedButtonBucks==getButtonBucks()) {
 		DoSpin()
 	}
 }
@@ -199,11 +200,19 @@ function getButtonBucks() {
 
 function addButtonBucks(number) {
 	ButtonBucks=getButtonBucks()
-	// console.log(ButtonBucks)
+
+	// Verifying button bucks
+	if (ExpectedButtonBucks=="") {
+		ExpectedButtonBucks=ButtonBucks
+	}
+	if (ExpectedButtonBucks!=ButtonBucks) {
+		ButtonBucks=ExpectedButtonBucks
+	}
 	ButtonBucks+=number
 
 	// Button Bucks will expire after 1 year of inactivity I guess
 	setCookie("ButtonBucks",String(ButtonBucks),365*60*60*24)
+	ExpectedButtonBucks=ButtonBucks
 
 	document.getElementsByClassName("bucky")[0].textContent = "Button Bucks: " + ButtonBucks
 }
