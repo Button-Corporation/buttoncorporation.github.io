@@ -9,6 +9,7 @@ var sfxSlider;
 var ExpectedButtonBucks = "";
 var Items=[
 	"Autoslots",
+	"AutoslotsEX"
 	"Burn",
 	"Peepo",
 	"Soul",
@@ -16,6 +17,7 @@ var Items=[
 	]
 var ItemPrices = {
 	"Autoslots":5,
+	"AutoslotsEX":35,
 	"Burn":100,
 	"Peepo":80,
 	"Soul":1,
@@ -23,10 +25,11 @@ var ItemPrices = {
 };
 var ItemCooldowns = {
 	"Autoslots":5*60,
+	"AutoslotsEX":30*60, // 30 minutes
 	"Burn":10*60,
 	"Peepo":10*60,
 	"Soul":10*60,
-	"Jungler":10*60*60, // 1 hour
+	"Jungler":60*60, // 1 hour
 };
 
 
@@ -97,9 +100,11 @@ function DoSpin() {
 		// Tries the autospin if you have the "Autoslots" item
 		// - Owen
 		tryAutoSpin()
-	}, 2222);
+	}, 3333);
 		// 2222 is a good number
 		// - Lyra
+	// No it's not
+	// - Owen
 }
 
 function CheckWinner(x, y, z) {

@@ -24,6 +24,8 @@ Balance philosophies:
 - The expected return for each item should be higher than without it (duh)
 """
 print("Regular gain from autoslots (not counting peepo wins):")
-print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0)-10)
+print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=5)-5)
+print("Regular gain from autoslots (not counting peepo wins):")
+print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=30)-35)
 print("Peepo2X gain from autoslots:")
 print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3])-10-80)
