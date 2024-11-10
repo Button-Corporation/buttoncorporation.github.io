@@ -13,16 +13,22 @@ var Items=[
 	"Autoslots",
 	"Burn",
 	"Peepo",
+	"Soul",
+	"Jungler",
 	]
 var ItemPrices = {
 	"Autoslots":25,
 	"Burn":100,
 	"Peepo":125,
+	"Soul":1,
+	"Jungler":20,
 };
 var ItemCooldowns = {
 	"Autoslots":10*60,
 	"Burn":10*60,
 	"Peepo":10*60,
+	"Soul":10*60,
+	"Jungler":10*60*60, // 1 hour
 };
 
 
@@ -247,4 +253,21 @@ function openShop() {
 	Music.play()
 	document.getElementsByClassName("open-shop-button")[0].hidden = true
 	document.getElementsByClassName("shop-content")[0].hidden = false
+}
+function farmCamp() {
+	if (hasItem("Jungler")) {
+		setCookie("Jungle","Farmed",60*3)
+	}
+	else {
+		setCookie("Jungle","Farmed",60*5)
+	}
+	addButtonBucks(5)
+	updateJungle()
+}
+function updateJungle() {
+	if (getCookie("Jungle")=="Farmed") {
+		document.getElementsByClassName("button")[0].classList.toggle("pressed")
+		document.getElementsByClassName("button")[0].textContent = "Farmed"
+		document.getElementsByClassName("button")[0].disabled = true;
+	}
 }

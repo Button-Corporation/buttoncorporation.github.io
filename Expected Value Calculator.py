@@ -15,5 +15,7 @@ def CalculateExpectedValue(SlotPattern,Spins=60/1.9*10): #Defaults to 10 minutes
 
 print("Regular value over 10 minutes:")
 print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3]))
-print("Peepo2x value over 10 minutes:")
+print("Peepo2X value over 10 minutes:")
 print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3]))
+print("Cherry2X value over 10 minutes:")
+print(CalculateExpectedValue([0,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3]))
