@@ -22,7 +22,7 @@ var ItemPrices = {
 	"Jungler":20,
 };
 var ItemCooldowns = {
-	"Autoslots":5*60,
+	"Autoslots":10*60,
 	"Burn":10*60,
 	"Peepo":10*60,
 	"Soul":10*60,
@@ -97,8 +97,9 @@ function DoSpin() {
 		// Tries the autospin if you have the "Autoslots" item
 		// - Owen
 		tryAutoSpin()
-	}, 3300);
-
+	}, 2222);
+		// 2222 is a good number
+		// - Lyra
 }
 
 function CheckWinner(x, y, z) {
