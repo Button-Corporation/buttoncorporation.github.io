@@ -13,9 +13,7 @@ def CalculateExpectedValue(SlotPattern,Spins=60/1.9*10): #Defaults to 10 minutes
 				CurrentSpins+=1
 	return Value*Spins/CurrentSpins
 
-print("Regular value over 10 minutes:")
-print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3]))
-print("Peepo2X value over 10 minutes:")
-print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3]))
-print("Cherry2X value over 10 minutes:")
-print(CalculateExpectedValue([0,1,1,1,1,1,1,1,1,1,2,2,2,3,3,3]))
+print("Regular gain from autoslots:")
+print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3])-25)
+print("Peepo2X gain from autoslots:")
+print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3])-25-125)

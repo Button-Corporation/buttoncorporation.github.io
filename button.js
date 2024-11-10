@@ -223,7 +223,7 @@ function addButtonBucks(number) {
 addButtonBucks(0)
 
 function getTimestamp() {
-	return 1731120274;
+	return 1731217285;
 }
 
 function evalCookie() {
