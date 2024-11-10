@@ -31,7 +31,6 @@ function DoSpin() {
 	// This does nothing if the music is already playing
 	// - Owen
 	Music.play()
-	setCookie("SpinCooldown",true,1)
 
 	// This disables the button
 	// - Owen
