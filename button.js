@@ -22,7 +22,7 @@ var ItemPrices = {
 	"Jungler":20,
 };
 var ItemCooldowns = {
-	"Autoslots":10*60,
+	"Autoslots":5*60,
 	"Burn":10*60,
 	"Peepo":10*60,
 	"Soul":10*60,
