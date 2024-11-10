@@ -15,14 +15,14 @@ var Items=[
 	"Jungler",
 	]
 var ItemPrices = {
-	"Autoslots":25,
+	"Autoslots":5,
 	"Burn":100,
-	"Peepo":125,
+	"Peepo":80,
 	"Soul":1,
 	"Jungler":20,
 };
 var ItemCooldowns = {
-	"Autoslots":10*60,
+	"Autoslots":5*60,
 	"Burn":10*60,
 	"Peepo":10*60,
 	"Soul":10*60,
@@ -97,7 +97,7 @@ function DoSpin() {
 		// Tries the autospin if you have the "Autoslots" item
 		// - Owen
 		tryAutoSpin()
-	}, 1900);
+	}, 3300);
 
 }
 

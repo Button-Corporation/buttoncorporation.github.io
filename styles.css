@@ -243,6 +243,11 @@ html{
 	font-size: 22px;
 }
 
+.about-content ul{
+	margin-bottom: 10vh;
+	font-size: 22px;
+}
+
 .button{
 	background-color: #529573;
 	width: 30vw;
