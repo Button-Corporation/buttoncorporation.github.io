@@ -133,7 +133,7 @@ function Unclick() {
 }
 
 function tryAutoSpin() {
-	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false && ExpectedButtonBucks==getButtonBucks()) {
+	if ((hasItem("Autoslots")||hasItem("AutoslotsEX")) && document.getElementsByClassName("slotbutton")[0].disabled==false && ExpectedButtonBucks==getButtonBucks()) {
 		DoSpin()
 	}
 }
