@@ -1,4 +1,4 @@
-def CalculateExpectedValue(SlotPattern,Spins=30*10): #Defaults to 10 minutes
+def CalculateExpectedValue(SlotPattern,Spins=60/1.9*10): #Defaults to 10 minutes
 	Value=0
 	CurrentSpins=0
 	for x in SlotPattern:

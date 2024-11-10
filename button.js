@@ -19,9 +19,9 @@ var ItemPrices = {
 	"Peepo":175,
 };
 var ItemCooldowns = {
-	"Autoslots":10.0 /24.0/60.0,
-	"Burn":10.0 /24.0/60.0,
-	"Peepo":10.0 /24.0/60.0,
+	"Autoslots":10*60,
+	"Burn":10*60,
+	"Peepo":10*60,
 };
 
 
@@ -30,6 +30,7 @@ function DoSpin() {
 	// This does nothing if the music is already playing
 	// - Owen
 	Music.play()
+	setCookie("SpinCooldown",true,1.5)
 
 	// This disables the button
 	// - Owen
@@ -122,7 +123,7 @@ function Unclick() {
 }
 
 function tryAutoSpin() {
-	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false) {
+	if (hasItem("Autoslots") && document.getElementsByClassName("slotbutton")[0].disabled==false && getCookie("SpinCooldown")=="") {
 		DoSpin()
 	}
 }
@@ -138,14 +139,14 @@ function formatChange() {
 function buttonClick() {
 	let timestamp = getTimestamp();
 	formatChange();
-	setCookie(timestamp, "true", 7);
+	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
 	fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
 	console.log("A new player has played.");
 
 }
-function setCookie(cname, cvalue, cdays) {
+function setCookie(cname, cvalue, cseconds) {
 	const d = new Date();
-	d.setTime(d.getTime() + (cdays * 24 * 60 * 60 * 1000));
+	d.setTime(d.getTime() + (cseconds * 1000));
 	let expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -202,7 +203,7 @@ function addButtonBucks(number) {
 	ButtonBucks+=number
 
 	// Button Bucks will expire after 1 year of inactivity I guess
-	setCookie("ButtonBucks",String(ButtonBucks),365)
+	setCookie("ButtonBucks",String(ButtonBucks),365*60*60*24)
 
 	document.getElementsByClassName("bucky")[0].textContent = "Button Bucks: " + ButtonBucks
 }
@@ -217,7 +218,7 @@ function evalCookie() {
 	let uuid = getCookie("uuid");
 	if (uuid == "") {
 		const id = window.crypto.randomUUID();
-		setCookie("uuid", id, 365);
+		setCookie("uuid", id, 365*60*60*24);
 	}
 
 	let cookie = getCookie(getTimestamp());
@@ -230,7 +231,7 @@ function evalCookie() {
 	}
 }
 function notifyLoad(timestamp) {
-	setCookie(timestamp, false, 365);
+	setCookie(timestamp, false, 365*60*60*24);
 	fetch("https://api.buttoncorp.org/open/" + getCookie("uuid") + "/" + timestamp);
 	console.log("A new player has entered.");
 }
