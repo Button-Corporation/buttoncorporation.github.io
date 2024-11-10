@@ -1,6 +1,7 @@
-def CalculateExpectedValue(SlotPattern,Peepo=1,Spins=60/3.3*10): #Defaults to 10 minutes
+def CalculateExpectedValue(SlotPattern,Peepo=1,Minutes=10,RPM=60/3.3): #Defaults to 10 minutes
 	Value=0
 	CurrentSpins=0
+	Spins=Minutes*RPM
 	for x in SlotPattern:
 		for y in SlotPattern:
 			for z in SlotPattern:
