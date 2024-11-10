@@ -12,21 +12,20 @@
 			<a href="about">About Us</a>
 			<a href="slots">Slots</a>
 			<a href="shop">Shop</a>
-			<a class="active" href="jungle">Jungle</a>
-			<a href="news">News</a>
+			<a href="jungle">Jungle</a>
+			<a class="active" href="news">News</a>
 			<a href="mailto:contact@buttoncorp.org">Contact</a>
 		</ul>
 		<div><a class="bucky"></a></div>
 	</div>
-	<div class="main-content">
-		<h1> Welcome to the jungle </h1>
-		<p>
-			After farming, come back to this page later.
-		</p>
-		<button class="button" onclick="farmCamp()">Farm</button>
+	<div class="about-content">
+		<h1> Have you heard about the jungle? </h1>
+		<p class="news-story">Those creeps sure have been creeping over there. I wonder what they're up to. Stay tuned in to Button News for more on this story as it progresses.</p>
 	</div>
 </body>
 <script src="button.js"></script>
 <script>
-updateJungle()
+	if (hasItem("Soul")) {
+		document.getElementsByClassName("news-story")[0].textContent="You've got blood on your hands, as do I. Did you press the button too?"
+	}
 </script>

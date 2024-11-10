@@ -4,11 +4,14 @@ def CalculateExpectedValue(SlotPattern,Spins=60/1.9*10): #Defaults to 10 minutes
 	for x in SlotPattern:
 		for y in SlotPattern:
 			for z in SlotPattern:
+				print(x,y,z)
 				if x==y and y==z:
 					#Regular win
+					print("skibidi")
 					Value+=1
 				if x==0 and y==0 and z==0:
 					#Peepo win
+					print("sigma")
 					Value+=99
 				CurrentSpins+=1
 	return Value*Spins/CurrentSpins
