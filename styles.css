@@ -155,16 +155,16 @@ html{
 	font-size: 22px;
 }
 
-.item {
+.weapon-item {
 	position: relative;
 	display: inline-block;
 }
 
-.item .tooltiptext {
+.weapon-item .tooltiptext {
 	visibility: hidden;
 	width: 40vh;
-	background-color: #28262C;
-	color: #ffffff;
+	background-color: #FF6F59;
+	color: #28262C;
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 0;
@@ -177,7 +177,59 @@ html{
 	margin-left: -20vh; /* Half of the width */
 }
 
-.item:hover .tooltiptext {
+.weapon-item:hover .tooltiptext {
+	visibility: visible;
+}
+
+.vitality-item {
+	position: relative;
+	display: inline-block;
+}
+
+.vitality-item .tooltiptext {
+	visibility: hidden;
+	width: 40vh;
+	background-color: #62a583;
+	color: #28262C;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	height: fit-content;
+
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+	margin-left: -20vh; /* Half of the width */
+}
+
+.vitality-item:hover .tooltiptext {
+	visibility: visible;
+}
+
+.spirit-item {
+	position: relative;
+	display: inline-block;
+}
+
+.spirit-item .tooltiptext {
+	visibility: hidden;
+	width: 40vh;
+	background-color: #E2A0FF;
+	color: #28262C;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	height: fit-content;
+
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+	margin-left: -20vh; /* Half of the width */
+}
+
+.spirit-item:hover .tooltiptext {
 	visibility: visible;
 }
 

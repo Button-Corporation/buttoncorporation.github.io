@@ -259,7 +259,7 @@ function farmCamp() {
 	else {
 		setCookie("Jungle","Farmed",60*5)
 	}
-	addButtonBucks(5)
+	addButtonBucks(10)
 	updateJungle()
 }
 function updateJungle() {
