@@ -3,7 +3,7 @@ const Click = new Audio("Click 1.mp3");
 const UnclickSound = new Audio("Big Click 1.mp3");
 const Win = new Audio("Win.wav");
 const CashSound = new Audio("Cash.wav");
-const ErrorSound = new Audio("notenough.wav");
+const ErrorSound = new Audio("Error.wav");
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",

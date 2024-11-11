@@ -70,7 +70,7 @@
 			<div class="vitality-item">
 				<img class="Item: Jungler" onclick="buyItem('Jungler')" src="Items/Jungler.png" style="width:15vh;height:15vh;">
 				<span class="tooltiptext">
-					<h1> ($20) Jungler </h1>
+					<h1> ($40) Jungler </h1>
 					<p> Decreases jungle respawn time from 5 minutes to 3 minutes. Lasts 1 hour. </p>
 				</span>
 			</div>
@@ -106,6 +106,7 @@ window.addEventListener('load', function () {
 		UnclickSound.volume = this.value;
 		Win.volume = this.value;
 		CashSound.volume = sfxSlider.value;
+		Error.volume = sfxSlider.value;
 	});
 	Music.volume = musicSlider.value;
 	Spin.volume = sfxSlider.value;
@@ -113,6 +114,7 @@ window.addEventListener('load', function () {
 	UnclickSound.volume = sfxSlider.value;
 	Win.volume = sfxSlider.value;
 	CashSound.volume = sfxSlider.value;
+	Error.volume = sfxSlider.value;
 
 	document.body.onkeyup = function (e) {
 		// Makes the space button also roll the slots
