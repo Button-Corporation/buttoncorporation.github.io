@@ -311,3 +311,11 @@ html{
 .volume-slider {
 	width: 150px;
 }
+
+#error-message {
+	text-align: center;
+	color: #FF6F59;
+	margin: auto;
+	width: fit-content;
+	font-size: 22px;
+}

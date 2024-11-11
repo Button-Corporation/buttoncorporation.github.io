@@ -1,13 +1,10 @@
-var Spin = new Audio("Expand 2.mp3");
-var Click = new Audio("Click 1.mp3");
-var UnclickSound = new Audio("Big Click 1.mp3");
-var Win = new Audio("Win.wav");
-var CashSound = new Audio("Cash.wav");
-var NumberOfWins = 0
-var musicSlider;
-var sfxSlider;
-var ExpectedButtonBucks = "";
-var Items=[
+const Spin = new Audio("Expand 2.mp3");
+const Click = new Audio("Click 1.mp3");
+const UnclickSound = new Audio("Big Click 1.mp3");
+const Win = new Audio("Win.wav");
+const CashSound = new Audio("Cash.wav");
+const ErrorSound = new Audio("notenough.wav");
+const Items=[
 	"Autoslots",
 	"AutoslotsEX",
 	"Burn",
@@ -15,7 +12,7 @@ var Items=[
 	"Soul",
 	"Jungler",
 	]
-var ItemPrices = {
+const ItemPrices = {
 	"Autoslots":5,
 	"AutoslotsEX":35,
 	"Burn":100,
@@ -23,7 +20,7 @@ var ItemPrices = {
 	"Soul":1,
 	"Jungler":40,
 };
-var ItemCooldowns = {
+const ItemCooldowns = {
 	"Autoslots":5*60,
 	"AutoslotsEX":30*60, // 30 minutes
 	"Burn":10*60,
@@ -31,6 +28,12 @@ var ItemCooldowns = {
 	"Soul":10*60,
 	"Jungler":60*60, // 1 hour
 };
+
+let NumberOfWins = 0
+let musicSlider;
+let sfxSlider;
+let ExpectedButtonBucks = "";
+let activeErrorTimeout;
 
 
 function DoSpin() {
@@ -49,7 +52,7 @@ function DoSpin() {
 	// Something appearing twice means it's twice as likely
 	// Slot images are named by their number (0 is Peepo)
 	// - Owen
-	var SlotPattern = [0,1,1,1,2,2,2,3,3,3]
+	let SlotPattern = [0,1,1,1,2,2,2,3,3,3]
 
 	if (hasItem("Peepo")) {
 		// Not technically doubled chance, but it's easier to just say "double"
@@ -59,9 +62,9 @@ function DoSpin() {
 
 	// Picks a random number from the slot pattern
 	// - Owen
-	var slotImage1 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
-	var slotImage2 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
-	var slotImage3 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
+	let slotImage1 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
+	let slotImage2 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
+	let slotImage3 = SlotPattern[Math.floor((Math.random() * SlotPattern.length))];
 	
 
 	// This sets all the slot images to the rolling gif
@@ -112,7 +115,7 @@ function CheckWinner(x, y, z) {
 	// - Owen
 	if (x === 0 && y === 0 && z === 0) {
 		addButtonBucks(99)
-	}; 
+	}
 
 	// Checks if you win at all
 	// - Owen
@@ -176,13 +179,35 @@ function getCookie(cname) {
 	return "";
 }
 
-function buyItem(Name) {
-	if (getButtonBucks()>=ItemPrices[Name] && hasItem(Name)==false) {
-		CashSound.play();
-		setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
-		addButtonBucks(-ItemPrices[Name]);
-		updateShop();
+function displayError(text) {
+	if(ErrorSound.paused) {
+		ErrorSound.play();
+	} else {
+		ErrorSound.currentTime = 0;
 	}
+	document.getElementById("error-message").innerText = text;
+	if (activeErrorTimeout) {
+		clearTimeout(activeErrorTimeout);
+	}
+	activeErrorTimeout = setTimeout(() => {
+		document.getElementById("error-message").innerText = ""
+	},2000);
+}
+
+function buyItem(Name) {
+	if (hasItem(Name)) {
+		displayError("You already own this item!");
+		return;
+	}
+	if (getButtonBucks() < ItemPrices[Name]) {
+		displayError("You don't have enough Button Bucks!");
+		return;
+	}
+
+	CashSound.play();
+	setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
+	addButtonBucks(-ItemPrices[Name]);
+	updateShop();
 }
 
 function updateShop() {
