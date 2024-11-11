@@ -11,6 +11,7 @@ const Items=[
 	"Peepo",
 	"Soul",
 	"Jungler",
+	"Heartbreak",
 	]
 const ItemPrices = {
 	"Autoslots":5,
@@ -19,6 +20,7 @@ const ItemPrices = {
 	"Peepo":80,
 	"Soul":1,
 	"Jungler":40,
+	"Heartbreak":50,
 };
 const ItemCooldowns = {
 	"Autoslots":5*60,
@@ -27,6 +29,7 @@ const ItemCooldowns = {
 	"Peepo":10*60,
 	"Soul":10*60,
 	"Jungler":60*60, // 1 hour
+	"Heartbreak":10*60,
 };
 
 let NumberOfWins = 0
@@ -54,8 +57,15 @@ function DoSpin() {
 	// - Owen
 	let SlotPattern = [0,1,1,1,2,2,2,3,3,3]
 
+	if (hasItem("Heartbreak")) {
+		// Removes hearts
+		// - Owen
+		SlotPattern = [0,1,1,1,2,2,2]
+	}
+
 	if (hasItem("Peepo")) {
 		// Not technically doubled chance, but it's easier to just say "double"
+		// Replaces Heartbreak
 		// - Owen
 		SlotPattern = [0,0,1,1,1,2,2,2,3,3,3]
 	}
