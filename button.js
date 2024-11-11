@@ -21,7 +21,7 @@ var ItemPrices = {
 	"Burn":100,
 	"Peepo":80,
 	"Soul":1,
-	"Jungler":20,
+	"Jungler":40,
 };
 var ItemCooldowns = {
 	"Autoslots":5*60,
@@ -229,7 +229,7 @@ function addButtonBucks(number) {
 addButtonBucks(0)
 
 function getTimestamp() {
-	return 1731217285;
+	return 1731352448;
 }
 
 function evalCookie() {
