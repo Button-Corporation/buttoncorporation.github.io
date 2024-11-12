@@ -1,9 +1,9 @@
-const Spin = new Audio("Expand 2.mp3");
-const Click = new Audio("Click 1.mp3");
-const UnclickSound = new Audio("Big Click 1.mp3");
-const Win = new Audio("Win.wav");
-const CashSound = new Audio("Cash.wav");
-const ErrorSound = new Audio("Error.wav");
+const Spin = new Audio("assets/audio/Expand 2.mp3");
+const Click = new Audio("assets/audio/Click 1.mp3");
+const UnclickSound = new Audio("assets/audio/Big Click 1.mp3");
+const Win = new Audio("assets/audio/Win.wav");
+const CashSound = new Audio("assets/audio/Cash.wav");
+const ErrorSound = new Audio("assets/audio/Error.wav");
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
@@ -79,27 +79,27 @@ function DoSpin() {
 
 	// This sets all the slot images to the rolling gif
 	// - Owen
-	document.getElementById('SlotImage1').src = "Mystery.gif";
-	document.getElementById('SlotImage2').src = "Mystery.gif";
-	document.getElementById('SlotImage3').src = "Mystery.gif";
+	document.getElementById('SlotImage1').src = "assets/img/Mystery.gif";
+	document.getElementById('SlotImage2').src = "assets/img/Mystery.gif";
+	document.getElementById('SlotImage3').src = "assets/img/Mystery.gif";
 	Spin.play()
 
 	setTimeout(function () {
 		// Sets the first slot to reveal after 500 ms
 		// - Owen
-		document.getElementById('SlotImage1').src = slotImage1+".png";
+		document.getElementById('SlotImage1').src = `assets/img/slots/${slotImage1}.png`;
 		Click.play()
 	}, 500);
 	setTimeout(function () {
 		// Sets the second slot to reveal after 1000 ms
 		// - Owen
-		document.getElementById('SlotImage2').src = slotImage2+".png";
+		document.getElementById('SlotImage2').src = `assets/img/slots/${slotImage2}.png`;
 		Click.play()
 	}, 1000);
 	setTimeout(function () {
 		// Sets the third slot to reveal after 1500 ms
 		// - Owen
-		document.getElementById('SlotImage3').src = slotImage3+".png";
+		document.getElementById('SlotImage3').src = `assets/img/slots/${slotImage3}.png`;
 		Click.play()
 		CheckWinner(slotImage1, slotImage2, slotImage3);
 	}, 1500);
@@ -223,7 +223,7 @@ function buyItem(Name) {
 function updateShop() {
 	for (var i = Items.length - 1; i >= 0; i--) {
 		if (hasItem(Items[i])) {
-			document.getElementsByClassName("Item: "+Items[i])[0].src="Items/Purchased.png";
+			document.getElementsByClassName("Item: "+Items[i])[0].src="assets/img/Items/Purchased.png";
 		}
 	}
 }
