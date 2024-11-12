@@ -4,6 +4,7 @@ const UnclickSound = new Audio("assets/audio/Big Click 1.mp3");
 const Win = new Audio("assets/audio/Win.wav");
 const CashSound = new Audio("assets/audio/Cash.wav");
 const ErrorSound = new Audio("assets/audio/Error.wav");
+const JungleSound = new Audio("assets/audio/Jungle.wav");
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
@@ -303,6 +304,7 @@ function openShop() {
 	document.getElementsByClassName("shop-content")[0].hidden = false
 }
 function farmCamp() {
+	JungleSound.play();
 	if (hasItem("Jungler")) {
 		setCookie("Jungle","Farmed",60*3)
 	}
@@ -325,9 +327,9 @@ function getTimestamp() {
 }
 
 function getTodayButton() {
-	return ["You get a pet talking cat but...","If it gets more than 1,000 feet away from you, both of you will die."]
+	return ["You give 10 orphans a perfect home and loving family but...","10 random babies die."]
 }
 
 function getTomorrowButton() {
-	return ["You give 10 orphans a perfect home and loving family but...","10 random babies die."]
+	return ["You get eyes on the back of your head.",""]
 }
