@@ -69,9 +69,15 @@ function DoSpin() {
 
 	if (hasItem("Peepo")) {
 		// Not technically doubled chance, but it's easier to just say "double"
-		// Replaces Heartbreak
 		// - Owen
 		SlotPattern = [0,0,1,1,1,2,2,2,3,3,3]
+	}
+
+	if (hasItem("Peepo") && hasItem("Heartbreak")) {
+		// Not technically worth it
+		// but players should at least feel like they haven't been scammed
+		// - Owen
+		SlotPattern = [0,0,2,2,2,2,3,3,3,3]
 	}
 
 	// Picks a random number from the slot pattern

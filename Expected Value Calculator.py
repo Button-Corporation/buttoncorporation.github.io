@@ -1,4 +1,4 @@
-def CalculateExpectedValue(SlotPattern,Peepo=1,Minutes=10,RPM=60/3.3): #Defaults to 10 minutes
+def CalculateExpectedValue(SlotPattern,Peepo=1,Minutes=10,RPM=60/3.3,Price=0): #Defaults to 10 minutes
 	Value=0
 	CurrentSpins=0
 	Spins=Minutes*RPM
@@ -17,17 +17,19 @@ def CalculateExpectedValue(SlotPattern,Peepo=1,Minutes=10,RPM=60/3.3): #Defaults
 						Value+=99
 					pass
 				CurrentSpins+=1
-	return Value*Spins/CurrentSpins
+	return Value*Spins/CurrentSpins-Price
 """
 Balance philosophies:
 - Items should be balanced around the assumption that a player will not get any peepo jackpots
 - The expected return for each item should be higher than without it (duh)
 """
 print("Regular gain from autoslots (not counting peepo wins):")
-print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=5))
+print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=5,Price=5))
 print("Regular gain from autoslots EX (not counting peepo wins):")
-print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=30))
+print(CalculateExpectedValue([0,1,1,1,2,2,2,3,3,3],Peepo=0,Minutes=30,Price=35))
 print("Peepo2X gain from autoslots:")
-print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3]))
+print(CalculateExpectedValue([0,0,1,1,1,2,2,2,3,3,3],Minutes=10,Price=5+5+90))
 print("Heartbreak gain from autoslots:")
-print(CalculateExpectedValue([0,2,2,2,3,3,3],Minutes=10))
+print(CalculateExpectedValue([0,2,2,2,3,3,3],Minutes=10,Price=5+5+50))
+print("Peepo2X+Heartbreak gain from autoslots:")
+print(CalculateExpectedValue([0,0,2,2,2,2,3,3,3,3],Minutes=10,Price=5+5+50+90))
