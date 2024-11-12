@@ -15,6 +15,15 @@
 	}
 }
 
+@keyframes buttonClick {
+	from {
+		transform: scale(0.8);
+	}
+	to {
+		transform:scale(1);
+	}
+}
+
 html{
 	background: linear-gradient(135deg, #DDFFF7 0%, #E2A0FF 100%);
 	overflow-x: hidden;
@@ -290,6 +299,7 @@ html{
 	box-shadow: inset 0px 0px 15px #FF6F59;
 	outline: none;
 	background-color: #28262C;
+	animation: buttonClick 0.5s ease forwards;
 }
 
 .pressed:hover{
