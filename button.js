@@ -77,7 +77,7 @@ function DoSpin() {
 		// Not technically worth it
 		// but players should at least feel like they haven't been scammed
 		// - Owen
-		SlotPattern = [0,0,2,2,2,2,3,3,3,3]
+		SlotPattern = [0,0,2,2,2,2,1,1,1,1]
 	}
 
 	// Picks a random number from the slot pattern
