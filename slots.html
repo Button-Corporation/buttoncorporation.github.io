@@ -1,23 +1,9 @@
+---
+---
 <!DOCTYPE html>
-<head>
-	<title>Button Corp</title>
-	<link rel="stylesheet" href="./styles.css"/>
-	<link rel="icon" href="Icon.ico">
-</head>
+{% include head.html %}
 <body class="slotsfull">
-	<div class="topnav">
-		<div class="topimagediv"><img style="width:45px;height:45px;" src="DarkLogo.png"></div>
-		<ul>
-			<a href="/">Daily Button</a>
-			<a href="about">About Us</a>
-			<a class="active" href="slots">Slots</a>
-			<a href="shop">Shop</a>
-			<a href="jungle">Jungle</a>
-			<a href="news">News</a>
-			<a href="mailto:contact@buttoncorp.org">Contact</a>
-		</ul>
-		<div><a class="bucky"></a></div>
-	</div>
+	{% include navbar.html active="slots" %}
 	<div class="slots-content">
 		<img src="assets/img/Slots%20Logo.png">
 		<div class="slots">
