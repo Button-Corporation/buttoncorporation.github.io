@@ -5,6 +5,7 @@ const Win = new Audio("assets/audio/Win.wav");
 const CashSound = new Audio("assets/audio/Cash.wav");
 const ErrorSound = new Audio("assets/audio/Error.wav");
 const JungleSound = new Audio("assets/audio/Jungle.wav");
+const OpenShopSound = new Audio("assets/audio/Open Shop.wav");
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
@@ -307,6 +308,7 @@ function notifyLoad(timestamp) {
 }
 function openShop() {
 	Music.play()
+	OpenShopSound.play()
 	document.getElementsByClassName("open-shop-button")[0].hidden = true
 	document.getElementsByClassName("shop-content")[0].hidden = false
 }
