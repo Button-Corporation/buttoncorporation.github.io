@@ -12,6 +12,7 @@ const Items=[
 	"Soul",
 	"Jungler",
 	"Heartbreak",
+	"Eye of the Prophet",
 	]
 const ItemPrices = {
 	"Autoslots":5,
@@ -21,6 +22,7 @@ const ItemPrices = {
 	"Soul":1,
 	"Jungler":40,
 	"Heartbreak":50,
+	"Eye of the Prophet":50,
 };
 const ItemCooldowns = {
 	"Autoslots":5*60,
@@ -30,6 +32,7 @@ const ItemCooldowns = {
 	"Soul":10*60,
 	"Jungler":60*60, // 1 hour
 	"Heartbreak":10*60,
+	"Eye of the Prophet":2*60, // Lasts 2 minutes
 };
 
 let NumberOfWins = 0
@@ -159,6 +162,14 @@ function formatChange() {
 	document.getElementsByClassName("button")[0].disabled = true;
 }
 
+function futureChange() {
+	document.getElementsByClassName("button")[0].classList.toggle("pressed")
+	document.getElementsByClassName("button")[0].textContent = "?"
+
+	// mister owen do not touch this below
+	document.getElementsByClassName("button")[0].disabled = true;
+}
+
 function buttonClick() {
 	let timestamp = getTimestamp();
 	formatChange();
@@ -263,10 +274,6 @@ function addButtonBucks(number) {
 
 addButtonBucks(0)
 
-function getTimestamp() {
-	return 1731352448;
-}
-
 function evalCookie() {
 	let uuid = getCookie("uuid");
 	if (uuid == "") {
@@ -275,7 +282,9 @@ function evalCookie() {
 	}
 
 	let cookie = getCookie(getTimestamp());
-	if (cookie == "true") {
+	if (hasItem("Eye of the Prophet")) {
+		futureChange();
+	} else if (cookie == "true") {
 		formatChange();
 	} else if (cookie == "false") {
 		console.log("Changing your mind?");
@@ -309,4 +318,16 @@ function updateJungle() {
 		document.getElementsByClassName("button")[0].textContent = "Farmed"
 		document.getElementsByClassName("button")[0].disabled = true;
 	}
+}
+
+function getTimestamp() {
+	return 1731352448;
+}
+
+function getTodayButton() {
+	return ["You get a pet talking cat but...","If it gets more than 1,000 feet away from you, both of you will die."]
+}
+
+function getTomorrowButton() {
+	return ["You give 10 orphans a perfect home and loving family but...","10 random babies die."]
 }

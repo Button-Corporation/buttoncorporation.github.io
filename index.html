@@ -6,11 +6,23 @@
 <body onload="evalCookie();">
 	{% include navbar.html active="index" %}
 	<div class="main-content">
-		<h1> Button of the Day </h1>
+		<h1 class="button-of-the-day-text"> Button of the Day </h1>
 		<p>
-			You get a pet talking cat but...<br>If it gets more than 1,000 feet away from you, both of you will die.
+			<span class="button-text1"></span>
+			<br>
+			<span class="button-text2"></span>
 		</p>
 		<button class="button" onclick="buttonClick()">Button</button>
 	</div>
 </body>
 <script src="button.js"></script>
+<script>
+	if (hasItem("Eye of the Prophet")){
+		document.getElementsByClassName("button-of-the-day-text")[0].textContent="Button of the Night"
+		document.getElementsByClassName("button-text1")[0].textContent=getTomorrowButton()[0]
+		document.getElementsByClassName("button-text2")[0].textContent=getTomorrowButton()[1]
+	} else {
+		document.getElementsByClassName("button-text1")[0].textContent=getTodayButton()[0]
+		document.getElementsByClassName("button-text2")[0].textContent=getTodayButton()[1]
+	}
+</script>
