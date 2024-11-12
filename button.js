@@ -179,6 +179,7 @@ function futureChange() {
 
 function buttonClick() {
 	let timestamp = getTimestamp();
+	Click.play()
 	formatChange();
 	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
 	fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
