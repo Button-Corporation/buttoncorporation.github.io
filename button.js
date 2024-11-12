@@ -42,6 +42,7 @@ let musicSlider;
 let sfxSlider;
 let ExpectedButtonBucks = "";
 let activeErrorTimeout;
+let buttonBucksChangeTimeout;
 
 
 function DoSpin() {
@@ -263,25 +264,39 @@ function getButtonBucks() {
 }
 
 function addButtonBucks(number) {
-	ButtonBucks=getButtonBucks()
+	let ButtonBucks = getButtonBucks();
 
 	// Verifying button bucks
 	if (ExpectedButtonBucks=="") {
-		ExpectedButtonBucks=ButtonBucks
+		ExpectedButtonBucks=ButtonBucks;
 	}
 	if (ExpectedButtonBucks!=ButtonBucks) {
-		ButtonBucks=ExpectedButtonBucks
+		ButtonBucks=ExpectedButtonBucks;
 	}
-	ButtonBucks+=number
+	ButtonBucks+=number;
 
 	// Button Bucks will expire after 1 year of inactivity I guess
 	setCookie("ButtonBucks",String(ButtonBucks),365*60*60*24)
-	ExpectedButtonBucks=ButtonBucks
+	ExpectedButtonBucks=ButtonBucks;
 
-	document.getElementsByClassName("bucky")[0].textContent = "Button Bucks: " + ButtonBucks
+	document.getElementById("button-bucks").innerText = ButtonBucks.toString();
+
+	let buttonBucksChangeElement = document.getElementById("button-bucks-change");
+
+	let isPositive = number >= 0;
+	let symbol = isPositive ? "+" : "";
+	buttonBucksChangeElement.innerText = ` (${symbol}${number})`;
+	buttonBucksChangeElement.style.color = isPositive ? "#62a583" : "#FF6F59";
+
+	if (buttonBucksChangeTimeout) {
+		clearTimeout(buttonBucksChangeTimeout);
+	}
+	buttonBucksChangeTimeout = setTimeout(() => {
+		document.getElementById("button-bucks-change").innerText = ""
+	},5000);
 }
 
-addButtonBucks(0)
+document.getElementById("button-bucks").innerText = getButtonBucks().toString();
 
 function evalCookie() {
 	let uuid = getCookie("uuid");
