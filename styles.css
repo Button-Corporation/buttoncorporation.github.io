@@ -40,6 +40,7 @@
 	--lightorange: #FF7F69;
 	--lavendar: #E2A0FF;
 	--cyan: #DDFFF7;
+	--white: #ffffff;
 }
 
 html{
@@ -51,6 +52,7 @@ html{
 }
 
 .slotsfull {
+	color: var(--white);
 	background: var(--black);
 	overflow-x: hidden;
 	width: 100%;
