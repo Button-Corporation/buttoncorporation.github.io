@@ -31,7 +31,7 @@ const ItemPrices = {
 	"AutoslotsEX":35,
 	"Burn":100,
 	"Peepo":80,
-	"Soul":100,
+	"Soul":25,
 	"Jungler":40,
 	"Heartbreak":50,
 	"Eye of the Prophet":100,
