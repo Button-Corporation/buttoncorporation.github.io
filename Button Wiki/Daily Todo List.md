@@ -1,0 +1,4 @@
+- Change timestamp
+- Copy the "tomorrow" button prompt to today
+- Write tomorrow's question
+- Update the news
