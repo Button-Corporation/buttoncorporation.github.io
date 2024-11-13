@@ -6,6 +6,16 @@ const CashSound = new Audio("assets/audio/Cash.wav");
 const ErrorSound = new Audio("assets/audio/Error.wav");
 const JungleSound = new Audio("assets/audio/Jungle.wav");
 const OpenShopSound = new Audio("assets/audio/Open Shop.wav");
+try{Music.volume = getMusicVolume();}
+catch{}
+Spin.volume = getSFXVolume();
+Click.volume = getSFXVolume();
+UnclickSound.volume = getSFXVolume();
+Win.volume = getSFXVolume();
+CashSound.volume = getSFXVolume();
+Error.volume = getSFXVolume();
+OpenShopSound.volume = getSFXVolume();
+JungleSound.volume = getSFXVolume();
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
@@ -260,6 +270,25 @@ function getButtonBucks() {
 	}
 	else {
 		return Number(ButtonBucks)
+	}
+}
+
+function getSFXVolume() {
+	let Volume=getCookie("sfxSlider")
+	if (Volume=="") {
+		return 0.5
+	}
+	else {
+		return Number(Volume)
+	}
+}
+function getMusicVolume() {
+	let Volume=getCookie("musicSlider")
+	if (Volume=="") {
+		return 0.5
+	}
+	else {
+		return Number(Volume)
 	}
 }
 

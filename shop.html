@@ -75,56 +75,9 @@
 				</span>
 			</div>
 		</div>
-		<div class="audio-container">
-			<!-- Volume Slider -->
-			<p color="white">   Music:</p><input type="range" id="musicSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
-			<p>Sounds:</p><input type="range" id="sfxSlider" class="volume-slider" min="0" max="1" step="0.01" value="0.5">
-		</div>
 	</div>
 </body>
-<script>
-var Music = new Audio("assets/audio/Welcome to the Shop.mp3");
-window.addEventListener('load', function () {
-	// Does the music and sound sliders
-	// - Owen
-	musicSlider = document.getElementById('musicSlider');
-	musicSlider.addEventListener('input', function() {
-		Music.volume = this.value;
-	});
-
-	sfxSlider = document.getElementById('sfxSlider');
-	sfxSlider.addEventListener('input', function() {
-		Spin.volume = this.value;
-		Click.volume = this.value;
-		UnclickSound.volume = this.value;
-		Win.volume = this.value;
-		CashSound.volume = sfxSlider.value;
-		Error.volume = sfxSlider.value;
-		OpenShopSound.volume = sfxSlider.value
-	});
-	Music.volume = musicSlider.value;
-	Spin.volume = sfxSlider.value;
-	Click.volume = sfxSlider.value;
-	UnclickSound.volume = sfxSlider.value;
-	Win.volume = sfxSlider.value;
-	CashSound.volume = sfxSlider.value;
-	Error.volume = sfxSlider.value;
-	OpenShopSound.volume = sfxSlider.value
-
-	document.body.onkeyup = function (e) {
-		// Makes the space button also roll the slots
-		// - Owen
-		if (e.key == " " ||
-			e.code == "Space" ||
-			e.keyCode == 32
-		) {
-			if (document.getElementsByClassName("slotbutton")[0].disabled == false) {
-				DoSpin()
-			}
-		}
-	}
-})
-</script>
+<script>var Music = new Audio("assets/audio/Welcome to the Shop.mp3");</script>
 <script src="button.js"></script>
 <script>
 updateShop()

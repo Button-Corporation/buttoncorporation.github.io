@@ -173,6 +173,7 @@ html{
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
 	color: var(--white);
+	animation: dropIn 0.5s ease forwards;
 }
 
 .shop-content h1{
@@ -336,7 +337,6 @@ html{
 	width: fit-content;
 	margin: auto auto;
 	gap: 10px;
-	color:var(--orange);
 }
 .volume-slider {
 	width: 150px;
