@@ -22,7 +22,7 @@ const Items=[
 	"Burn",
 	"Peepo",
 	"Soul",
-	"Jungler",
+	"Speed Jungler",
 	"Heartbreak",
 	"Eye of the Prophet",
 	]
@@ -32,7 +32,7 @@ const ItemPrices = {
 	"Burn":100,
 	"Peepo":80,
 	"Soul":25,
-	"Jungler":40,
+	"Speed Jungler":40,
 	"Heartbreak":50,
 	"Eye of the Prophet":100,
 };
@@ -42,7 +42,7 @@ const ItemCooldowns = {
 	"Burn":10*60, // 10 minutes
 	"Peepo":10*60, // 10 minutes
 	"Soul":10*60, // 10 minutes
-	"Jungler":60*60, // 1 hour
+	"Speed Jungler":60*60, // 1 hour
 	"Heartbreak":10*60, // 10 minutes
 	"Eye of the Prophet":2*60, // 2 minutes
 };
@@ -370,7 +370,7 @@ function openShop() {
 }
 function farmCamp() {
 	JungleSound.play();
-	if (hasItem("Jungler")) {
+	if (hasItem("Speed Jungler")) {
 		setCookie("Jungle","Farmed",60*3)
 	}
 	else {
