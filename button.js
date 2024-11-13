@@ -235,6 +235,15 @@ function displayError(text) {
 	},2000);
 }
 
+
+let VoicelineIndex = Math.floor(Math.random() * 20)
+function playMerchantVoiceline(Type,MaxLines) {
+	Voiceline = new Audio("assets/audio/merchant/" + Type + VoicelineIndex%MaxLines + ".mp3");
+	VoicelineIndex+=1
+	Voiceline.volume=getSFXVolume();
+	Voiceline.play()
+}
+
 function buyItem(Name) {
 	if (hasItem(Name)) {
 		displayError("You already own this item!");
@@ -246,6 +255,7 @@ function buyItem(Name) {
 	}
 
 	CashSound.play();
+	playMerchantVoiceline("buy",6)
 	setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
 	addButtonBucks(-ItemPrices[Name]);
 	updateShop();
@@ -354,6 +364,7 @@ function notifyLoad(timestamp) {
 function openShop() {
 	Music.play()
 	OpenShopSound.play()
+	playMerchantVoiceline("enter",5)
 	document.getElementsByClassName("open-shop-button")[0].hidden = true
 	document.getElementsByClassName("shop-content")[0].hidden = false
 }
