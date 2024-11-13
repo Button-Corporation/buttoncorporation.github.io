@@ -141,6 +141,7 @@ html{
 	width: fit-content;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
+	animation: dropIn 0.5s ease forwards;
 }
 
 .shopbox {
