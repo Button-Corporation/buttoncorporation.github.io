@@ -377,13 +377,13 @@ function updateJungle() {
 }
 
 function getTimestamp() {
-	return 1731410806;
+	return 1731475791;
 }
 
 function getTodayButton() {
-	return ["You give 10 orphans a perfect home and loving family but...","10 random babies die."]
+	return ["You get eyes on the back of your head.",""]
 }
 
 function getTomorrowButton() {
-	return ["You get eyes on the back of your head.",""]
+	return ["You get 100 button bucks, but...","the button breaks."]
 }
