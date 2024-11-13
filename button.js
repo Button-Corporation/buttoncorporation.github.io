@@ -31,20 +31,20 @@ const ItemPrices = {
 	"AutoslotsEX":35,
 	"Burn":100,
 	"Peepo":80,
-	"Soul":1,
+	"Soul":100,
 	"Jungler":40,
 	"Heartbreak":50,
-	"Eye of the Prophet":50,
+	"Eye of the Prophet":100,
 };
 const ItemCooldowns = {
-	"Autoslots":5*60,
+	"Autoslots":5*60, // 5 minutes
 	"AutoslotsEX":30*60, // 30 minutes
-	"Burn":10*60,
-	"Peepo":10*60,
-	"Soul":10*60,
+	"Burn":10*60, // 10 minutes
+	"Peepo":10*60, // 10 minutes
+	"Soul":10*60, // 10 minutes
 	"Jungler":60*60, // 1 hour
-	"Heartbreak":10*60,
-	"Eye of the Prophet":2*60, // Lasts 2 minutes
+	"Heartbreak":10*60, // 10 minutes
+	"Eye of the Prophet":2*60, // 2 minutes
 };
 
 let NumberOfWins = 0
