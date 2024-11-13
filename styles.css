@@ -32,8 +32,18 @@
 	}
 }
 
+:root {
+	--black: #28262C;
+	--green: #529573;
+	--lightgreen: #62a583;
+	--orange: #FF6F59;
+	--lightorange: #FF7F69;
+	--lavendar: #E2A0FF;
+	--cyan: #DDFFF7;
+}
+
 html{
-	background: linear-gradient(135deg, #DDFFF7 0%, #E2A0FF 100%);
+	background: linear-gradient(135deg, var(--cyan) 0%, var(--lavendar) 100%);
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
@@ -41,7 +51,7 @@ html{
 }
 
 .slotsfull {
-	background: #28262C;
+	background: var(--black);
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
@@ -57,7 +67,7 @@ html{
 }
 
 .topnav {
-	background-color: #28262C;
+	background-color: var(--black);
 	font-family: 'Montserrat', sans-serif;
 	overflow: hidden;
 	display: flex;
@@ -79,7 +89,7 @@ html{
 
 .topnav a {
 	float: left;
-	color: #FF6F59;
+	color: var(--orange);
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -87,12 +97,12 @@ html{
 }
 
 .topnav a:hover {
-	background-color: #529573;
+	background-color: var(--green);
 	color: #28262C;
 }
 
 .topnav a.active {
-	background-color: #FF6F59;
+	background-color: var(--orange);
 	color: white;
 }
 
@@ -123,7 +133,7 @@ html{
 
 .slots {
 	border-radius: 25px;
-	background-color: #62a583;
+	background-color: var(--green);
 	margin: auto auto;
 	padding: 2vh 2vh;
 	width: fit-content;
@@ -133,7 +143,7 @@ html{
 
 .shopbox {
 	border-radius: 25px;
-	background-color: #DDFFF7;
+	background-color: var(--cyan);
 	margin: auto auto;
 	padding: 2vh 2vh;
 	width: fit-content;
@@ -152,7 +162,7 @@ html{
 	width: fit-content;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
-	color: #ffffff;
+	color: var(--white);
 }
 
 .shop-content{
@@ -160,7 +170,7 @@ html{
 	width: fit-content;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
-	color: #ffffff;
+	color: var(--white);
 }
 
 .shop-content h1{
@@ -181,8 +191,8 @@ html{
 .weapon-item .tooltiptext {
 	visibility: hidden;
 	width: 40vh;
-	background-color: #FF6F59;
-	color: #28262C;
+	background-color: var(--orange);
+	color: var(--black);
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 0;
@@ -207,8 +217,8 @@ html{
 .vitality-item .tooltiptext {
 	visibility: hidden;
 	width: 40vh;
-	background-color: #62a583;
-	color: #28262C;
+	background-color: var(--green);
+	color: var(--black);
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 0;
@@ -233,8 +243,8 @@ html{
 .spirit-item .tooltiptext {
 	visibility: hidden;
 	width: 40vh;
-	background-color: #E2A0FF;
-	color: #28262C;
+	background-color: var(--lavendar);
+	color: var(--black);
 	text-align: center;
 	border-radius: 6px;
 	padding: 5px 0;
@@ -280,11 +290,11 @@ html{
 }
 
 .button:hover{
-	background-color: #62a583;
+	background-color: var(--lightgreen);
 }
 
 .slotbutton{
-	background-color: #FF6F59;
+	background-color: var(--orange);
 	margin: 5vh;
 	width: 30vw;
 	height: 20vh;
@@ -298,7 +308,7 @@ html{
 }
 
 .slotbutton:hover{
-	background-color: #FF7F69;
+	background-color: var(--lightorange);
 }
 
 .pressed{
@@ -306,17 +316,17 @@ html{
 	-moz-box-shadow: inset 0px 0px 15px #FF6F59;
 	box-shadow: inset 0px 0px 15px #FF6F59;
 	outline: none;
-	background-color: #28262C;
+	background-color: var(--black);
 	animation: buttonClick 0.5s ease forwards;
 }
 
 .pressed:hover{
-	background-color: #28262C;
+	background-color: var(--black);
 	cursor: unset;
 }
 
 .wintext{
-	color: #FF6F59;
+	color: var(--orange);
 }
 
 .audio-container {
@@ -324,7 +334,7 @@ html{
 	width: fit-content;
 	margin: auto auto;
 	gap: 10px;
-	color:#FF6F59;
+	color:var(--orange);
 }
 .volume-slider {
 	width: 150px;
@@ -332,7 +342,7 @@ html{
 
 #error-message {
 	text-align: center;
-	color: #FF6F59;
+	color: var(--orange);
 	margin: auto;
 	width: fit-content;
 	font-size: 22px;

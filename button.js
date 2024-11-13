@@ -286,14 +286,14 @@ function addButtonBucks(number) {
 	let isPositive = number >= 0;
 	let symbol = isPositive ? "+" : "";
 	buttonBucksChangeElement.innerText = ` (${symbol}${number})`;
-	buttonBucksChangeElement.style.color = isPositive ? "#62a583" : "#FF6F59";
+	buttonBucksChangeElement.style.color = isPositive ? "#62A583" : "#FF0035";
 
 	if (buttonBucksChangeTimeout) {
 		clearTimeout(buttonBucksChangeTimeout);
 	}
 	buttonBucksChangeTimeout = setTimeout(() => {
 		document.getElementById("button-bucks-change").innerText = ""
-	},5000);
+	},2000);
 }
 
 document.getElementById("button-bucks").innerText = getButtonBucks().toString();
