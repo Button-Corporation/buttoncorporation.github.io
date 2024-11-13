@@ -297,6 +297,7 @@ function addButtonBucks(number) {
 }
 
 document.getElementById("button-bucks").innerText = getButtonBucks().toString();
+ExpectedButtonBucks = getButtonBucks();
 
 function evalCookie() {
 	let uuid = getCookie("uuid");
