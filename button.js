@@ -300,7 +300,7 @@ function addButtonBucks(number) {
 		ExpectedButtonBucks=ButtonBucks;
 	}
 	if (ExpectedButtonBucks!=ButtonBucks) {
-		ButtonBucks=ExpectedButtonBucks;
+		ButtonBucks=Math.min(ButtonBucks,ExpectedButtonBucks);
 	}
 	ButtonBucks+=number;
 
