@@ -185,6 +185,13 @@ function formatChange() {
 	document.getElementsByClassName("button")[0].disabled = true;
 }
 
+function formatBreak() {
+	document.getElementsByClassName("button")[0].style.visibility="hidden"
+
+	// mister owen do not touch this below
+	document.getElementsByClassName("button")[0].disabled = true;
+}
+
 function futureChange() {
 	document.getElementsByClassName("button")[0].classList.toggle("pressed")
 	document.getElementsByClassName("button")[0].textContent = "?"
@@ -196,8 +203,9 @@ function futureChange() {
 function buttonClick() {
 	let timestamp = getTimestamp();
 	Click.play()
-	formatChange();
+	formatBreak();
 	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
+	setCookie("Button Broken", "true", 2 * 24 * 60 * 60);
 	fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
 	console.log("A new player has played.");
 
@@ -352,6 +360,8 @@ function evalCookie() {
 	let cookie = getCookie(getTimestamp());
 	if (hasItem("Eye of the Prophet")) {
 		futureChange();
+	} else if (getCookie("Button Broken")!="") {
+		formatBreak();
 	} else if (cookie == "true") {
 		formatChange();
 	} else if (cookie == "false") {
@@ -392,13 +402,13 @@ function updateJungle() {
 }
 
 function getTimestamp() {
-	return 1731475791;
+	return 1731565753;
 }
 
 function getTodayButton() {
-	return ["You get eyes on the back of your head.",""]
+	return ["You get 100 button bucks, but...","the button dissappears for 2 days."]
 }
 
 function getTomorrowButton() {
-	return ["You get 100 button bucks, but...","the button breaks."]
+	return ["You get 500 button bucks.",""]
 }
