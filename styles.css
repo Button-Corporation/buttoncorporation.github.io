@@ -73,6 +73,7 @@ html{
 	overflow: hidden;
 	display: flex;
 	justify-content: space-between;
+	background-color: var(--black);
 }
 
 
@@ -91,15 +92,6 @@ html{
 
 .topnav a {
 	float: left;
-	color: var(--black);
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 20px;
-}
-
-.slotsfull .topnav a {
-	float: left;
 	color: var(--orange);
 	text-align: center;
 	padding: 14px 16px;
@@ -108,11 +100,6 @@ html{
 }
 
 .topnav a:hover {
-	background-color: var(--black);
-	color: var(--orange);
-}
-
-.slotsfull .topnav a:hover {
 	background-color: var(--lavendar);
 	color: var(--black);
 }
