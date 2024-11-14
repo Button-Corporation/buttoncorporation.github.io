@@ -69,12 +69,12 @@ html{
 }
 
 .topnav {
-	background-color: var(--black);
 	font-family: 'Montserrat', sans-serif;
 	overflow: hidden;
 	display: flex;
 	justify-content: space-between;
 }
+
 
 .topimagediv {
 	width: 25vh;
@@ -91,6 +91,15 @@ html{
 
 .topnav a {
 	float: left;
+	color: var(--black);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.slotsfull .topnav a {
+	float: left;
 	color: var(--orange);
 	text-align: center;
 	padding: 14px 16px;
@@ -99,8 +108,13 @@ html{
 }
 
 .topnav a:hover {
-	background-color: var(--green);
-	color: #28262C;
+	background-color: var(--black);
+	color: var(--orange);
+}
+
+.slotsfull .topnav a:hover {
+	background-color: var(--lavendar);
+	color: var(--black);
 }
 
 .topnav a.active {
@@ -289,12 +303,15 @@ html{
 	box-shadow: 0 8px 16px 0 #28262C30, 0 6px 20px 0 #28262C30;
 	cursor: pointer;
 	font-size: 50px;
-	color: #eeeeee;
+	color: var(--white);
 	animation: dropIn 0.5s ease forwards;
+	transition: 0.1s;
 }
 
 .button:hover{
 	background-color: var(--lightgreen);
+	width: 35vw;
+	transition: 0.1s;
 }
 
 .slotbutton{
@@ -309,10 +326,13 @@ html{
 	font-size: 50px;
 	color: #eeeeee;
 	animation: buttonUnclick 0.2s ease forwards;
+	transition: 0.1s;
 }
 
 .slotbutton:hover{
 	background-color: var(--lightorange);
+	width: 35vw;
+	transition: 0.1s;
 }
 
 .pressed{
@@ -321,12 +341,13 @@ html{
 	box-shadow: inset 0px 0px 15px #FF6F59;
 	outline: none;
 	background-color: var(--black);
-	animation: buttonClick 0.5s ease forwards;
+	animation: buttonClick 0.2s ease forwards;
 }
 
 .pressed:hover{
 	background-color: var(--black);
 	cursor: unset;
+	width: 30vw;
 }
 
 .wintext{
