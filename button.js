@@ -202,6 +202,7 @@ function futureChange() {
 
 function buttonClick() {
 	let timestamp = getTimestamp();
+	addButtonBucks(100)
 	Click.play()
 	formatBreak();
 	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
