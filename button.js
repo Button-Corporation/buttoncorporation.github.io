@@ -152,7 +152,11 @@ function CheckWinner(x, y, z) {
 	// Checks if you win at all
 	// - Owen
 	if (x == y && x == z) {
-		Win.play()
+		if(Win.paused) {
+			Win.play();
+		} else {
+			Win.currentTime = 0;
+		}
 		NumberOfWins = NumberOfWins + 1
 		addButtonBucks(1)
 		document.getElementsByClassName("wintext")[0].textContent = "Session Wins: " + NumberOfWins
