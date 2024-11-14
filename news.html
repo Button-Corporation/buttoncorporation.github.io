@@ -5,21 +5,21 @@
 <body>
 	{% include navbar.html active="news" %}
 	<div class="about-content">
-		<h1> Did you hear the shop keeper? </h1>
-		<p class="news-story">I've heard he's new in town.</p>
+		<h1> Did you hear about the prophet? </h1>
+		<p class="news-story">People are saying he's a fraud and his prophecy was false.</p>
 		<h1> Today's Patches </h1>
 		<ul>
-			<li>BUFF: Peepo2X and Heartbreak now work together.</li>
-			<li>CHANGE: Unmuted the jungle.</li>
-			<li>CHANGE: Fixed bug that caused button pressing animation to not work properly.</li>
-			<li>CHANGE: Fixed bug causing shop voicelines to not play.</li>
 			<li>Milk</li>
+		</ul>  
+		<h1> NOTICE </h1>
+		<ul>
+			<li>We've heard reports that the button is dissappearing for some users, this shouldn't be possible but we're investigating these claims.</li>
 		</ul>  
 	</div>
 </body>
 <script src="button.js"></script>
 <script>
 	if (hasItem("Soul")) {
-		document.getElementsByClassName("news-story")[0].textContent="He's kinda cute."
+		document.getElementsByClassName("news-story")[0].textContent="The prophet's eye knows all."
 	}
 </script>
