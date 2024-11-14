@@ -6,16 +6,6 @@ const CashSound = new Audio("assets/audio/Cash.mp3");
 const ErrorSound = new Audio("assets/audio/Error.wav");
 const JungleSound = new Audio("assets/audio/Jungle.wav");
 const OpenShopSound = new Audio("assets/audio/Open Shop.wav");
-try{Music.volume = getMusicVolume();}
-catch{}
-Spin.volume = getSFXVolume();
-Click.volume = getSFXVolume();
-UnclickSound.volume = getSFXVolume();
-Win.volume = getSFXVolume();
-CashSound.volume = getSFXVolume();
-Error.volume = getSFXVolume();
-OpenShopSound.volume = getSFXVolume();
-JungleSound.volume = getSFXVolume();
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
@@ -25,6 +15,7 @@ const Items=[
 	"Speed Jungler",
 	"Heartbreak",
 	"Eye of the Prophet",
+	"Bad Time",
 	]
 const ItemPrices = {
 	"Autoslots":5,
@@ -35,6 +26,7 @@ const ItemPrices = {
 	"Speed Jungler":40,
 	"Heartbreak":50,
 	"Eye of the Prophet":100,
+	"Bad Time":20,
 };
 const ItemCooldowns = {
 	"Autoslots":5*60, // 5 minutes
@@ -45,6 +37,7 @@ const ItemCooldowns = {
 	"Speed Jungler":60*60, // 1 hour
 	"Heartbreak":10*60, // 10 minutes
 	"Eye of the Prophet":2*60, // 2 minutes
+	"Bad Time":10*60, // 10 minutes
 };
 
 let NumberOfWins = 0

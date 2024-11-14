@@ -16,8 +16,13 @@
 		<p>You are free to use auto-clickers, but please note that those are not the intended experience.<br>You're only cheating yourself.</p>
 	</div>
 </body>
+<script src="button.js"></script>
 <script>
-var Music = new Audio("assets/audio/Slots.mp3");
+if (hasItem("Bad Time")){
+	var Music = new Audio("assets/audio/Megaloslots.mp3");
+} else {
+	var Music = new Audio("assets/audio/Slots.mp3");
+}
 window.addEventListener('load', function () {
 	document.body.onkeyup = function (e) {
 		// Makes the space button also roll the slots
@@ -32,7 +37,5 @@ window.addEventListener('load', function () {
 		}
 	}
 })
-Music.loop = true
-Music.volume = 0.5;
 </script>
-<script src="button.js"></script>
+<script src="music.js"></script>
