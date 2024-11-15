@@ -233,6 +233,7 @@ function tryAutoSpin() {
 function formatChange() {
 	document.getElementsByClassName("button")[0].classList.toggle("pressed")
 	document.getElementsByClassName("button")[0].textContent = "Pressed"
+	document.getElementsByClassName("button")[0].style.visibility="visible"
 
 	// mister owen do not touch this below
 	document.getElementsByClassName("button")[0].disabled = true;
@@ -248,6 +249,7 @@ function formatBreak() {
 function futureChange() {
 	document.getElementsByClassName("button")[0].classList.toggle("pressed")
 	document.getElementsByClassName("button")[0].textContent = "?"
+	document.getElementsByClassName("button")[0].style.visibility="visible"
 
 	// mister owen do not touch this below
 	document.getElementsByClassName("button")[0].disabled = true;
@@ -255,11 +257,10 @@ function futureChange() {
 
 function buttonClick() {
 	let timestamp = getTimestamp();
-	addButtonBucks(100)
+	addButtonBucks(500)
 	Click.play()
-	formatBreak();
+	formatChange();
 	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
-	setCookie("Button Broken", "true", 2 * 24 * 60 * 60);
 	fetch("https://api.buttoncorp.org/press/" + getCookie("uuid") + "/" + timestamp);
 	console.log("A new player has played.");
 
@@ -419,8 +420,10 @@ function evalCookie() {
 	} else if (cookie == "true") {
 		formatChange();
 	} else if (cookie == "false") {
+		document.getElementsByClassName("button")[0].style.visibility="visible"
 		console.log("Changing your mind?");
 	} else {
+		document.getElementsByClassName("button")[0].style.visibility="visible"
 		notifyLoad(getTimestamp());
 	}
 }
@@ -455,18 +458,6 @@ function updateJungle() {
 	}
 }
 
-function getTimestamp() {
-	return 1731565753;
-}
-
-function getTodayButton() {
-	return ["You get 100 button bucks, but...","the button dissappears for 2 days."]
-}
-
-function getTomorrowButton() {
-	return ["You get 500 button bucks.",""]
-}
-
 function registerSmots() {
 	let video = document.getElementById("slots8Video");
 	video.load()
@@ -483,4 +474,17 @@ function registerSmots() {
 			console.warn("smots gaming")
 		}
 	}
+}
+
+
+function getTimestamp() {
+	return 1731683588;
+}
+
+function getTodayButton() {
+	return ["You get 500 button bucks.",""]
+}
+
+function getTomorrowButton() {
+	return ["Your appearance changes into whoever you want, but...","that person dies and nobody remembers what they looked like when they were alive."]
 }

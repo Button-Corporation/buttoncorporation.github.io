@@ -282,6 +282,7 @@ html{
 }
 
 .button{
+	visibility: hidden;
 	background-color: #529573;
 	width: 30vw;
 	height: 20vh;
