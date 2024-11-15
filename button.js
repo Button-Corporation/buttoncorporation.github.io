@@ -7,6 +7,15 @@ const CashSound = new Audio("assets/audio/Cash.mp3");
 const ErrorSound = new Audio("assets/audio/Error.wav");
 const JungleSound = new Audio("assets/audio/Jungle.wav");
 const OpenShopSound = new Audio("assets/audio/Open Shop.wav");
+Spin.volume = getSFXVolume();
+Click.volume = getSFXVolume();
+Click2.volume = getSFXVolume();
+UnclickSound.volume = getSFXVolume();
+Win.volume = getSFXVolume();
+CashSound.volume = getSFXVolume();
+Error.volume = getSFXVolume();
+OpenShopSound.volume = getSFXVolume();
+JungleSound.volume = getSFXVolume();
 const Items=[
 	"Autoslots",
 	"AutoslotsEX",
