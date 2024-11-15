@@ -1,41 +1,45 @@
 ---
 ---
 <!DOCTYPE html>
-{% include head.html %}
-<body class="slotsfull">
-	{% include navbar.html active="slots" %}
-	<div class="slots-content">
-		<img src="assets/img/Slots%20Logo.png">
-		<div class="slots">
-			<td><img id="SlotImage1" src="assets/img/slots/1.png" alt="Slot Image #1" style="Width:200px; Height:200px;"></td>
-			<td><img id="SlotImage2" src="assets/img/slots/2.png" alt="Slot Image #2" style="Width:200px; Height:200px;"></td>
-			<td><img id="SlotImage3" src="assets/img/slots/3.png" alt="Slot Image #3" style="Width:200px; Height:200px;"></td>
+<html lang="en_US">
+	{% include head.html %}
+	<body class="slotsfull">
+		{% include navbar.html active="slots" %}
+		<div class="slots-content">
+			<img src="assets/img/Slots%20Logo.png">
+			<div class="slots" id="slots">
+				<img id="SlotImage1" src="assets/img/slots/1.png" alt="Slot Image #1" style="Width:200px; Height:200px;">
+				<span class="SlotImage2Container"><img id="SlotImage2" src="assets/img/slots/2.png" alt="Slot Image #2" style="Width:200px; Height:200px;"></span>
+				<img id="SlotImage3" src="assets/img/slots/3.png" alt="Slot Image #3" style="Width:200px; Height:200px;">
+			</div>
+			<h1 class="wintext">Session Wins: 0</h1>
+			<button class="slotbutton" onclick="DoSpin()">Button</button>
+			<p>You are free to use auto-clickers, but please note that those are not the intended experience.<br>You're only cheating yourself.</p>
 		</div>
-		<h1 class="wintext">Session Wins: 0</h1>
-		<button class="slotbutton" onclick="DoSpin()">Button</button>
-		<p>You are free to use auto-clickers, but please note that those are not the intended experience.<br>You're only cheating yourself.</p>
-	</div>
-</body>
-<script src="button.js"></script>
-<script>
-if (hasItem("Bad Time")){
-	var Music = new Audio("assets/audio/Megaloslots.mp3");
-} else {
-	var Music = new Audio("assets/audio/Slots.mp3");
-}
-window.addEventListener('load', function () {
-	document.body.onkeyup = function (e) {
-		// Makes the space button also roll the slots
-		// - Owen
-		if (e.key == " " ||
-			e.code == "Space" ||
-			e.keyCode == 32
-		) {
-			if (document.getElementsByClassName("slotbutton")[0].disabled == false) {
-				DoSpin()
+	<video src="/assets/slots-8.mp4" hidden="hidden" id="slots8Video" preload="auto"></video>
+	</body>
+	<script src="button.js"></script>
+	<script>
+	if (hasItem("Bad Time")){
+		var Music = new Audio("assets/audio/Megaloslots.mp3");
+	} else {
+		var Music = new Audio("assets/audio/Slots.mp3");
+	}
+	window.addEventListener('load', function () {
+		document.body.onkeyup = function (e) {
+			// Makes the space button also roll the slots
+			// - Owen
+			if (e.key == " " ||
+				e.code == "Space" ||
+				e.keyCode == 32
+			) {
+				if (document.getElementsByClassName("slotbutton")[0].disabled == false) {
+					DoSpin()
+				}
 			}
 		}
-	}
-})
-</script>
-<script src="music.js"></script>
+		registerSmots()
+	})
+	</script>
+	<script src="music.js"></script>
+</html>

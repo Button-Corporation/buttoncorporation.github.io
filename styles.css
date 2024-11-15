@@ -358,3 +358,15 @@ html{
 	width: fit-content;
 	font-size: 22px;
 }
+
+.SlotImage2Container {
+	height: 200px;
+	width: 200px;
+	display: inline-block;
+}
+
+.SlotImage2Container video {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}

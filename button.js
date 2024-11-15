@@ -1,5 +1,6 @@
 const Spin = new Audio("assets/audio/Expand 2.mp3");
 const Click = new Audio("assets/audio/Click 1.mp3");
+const Click2 = new Audio("assets/audio/Click 1.mp3");
 const UnclickSound = new Audio("assets/audio/Big Click 1.mp3");
 const Win = new Audio("assets/audio/Win.wav");
 const CashSound = new Audio("assets/audio/Cash.mp3");
@@ -46,6 +47,9 @@ let sfxSlider;
 let ExpectedButtonBucks = "";
 let activeErrorTimeout;
 let buttonBucksChangeTimeout;
+let typedLetters = "";
+let smots = false;
+let smotsCount = 0;
 
 
 function DoSpin() {
@@ -99,6 +103,50 @@ function DoSpin() {
 	document.getElementById('SlotImage3').src = "assets/img/Mystery.gif";
 	Spin.play()
 
+	if (smots) {
+		smotsCount++;
+		if (smotsCount >= 3) {
+			slotImage1 = slotImage2 = slotImage3 = "smots";
+			setTimeout(function () {
+				Music.pause();
+			}, 1500);
+			setTimeout(function () {
+				Music.pause();
+				let box = document.getElementById("slots").children[1];
+				let pos = box.children[0].getBoundingClientRect();
+				let holder = box.cloneNode(true);
+				holder.style.visibility = "hidden";
+				box.before(holder);
+
+
+				box.children[0].remove();
+				let video = document.getElementById("slots8Video");
+				box.appendChild(video);
+				video.hidden = false;
+				video.play();
+
+				let style = box.style;
+				style.position = "absolute";
+				box.classList.add("fullscreen");
+				document.body.appendChild(box)
+				style.left = `${pos.x}px`;
+				style.top = `${pos.y}px`;
+				box.animate({
+					"top": 0,
+					"left": 0,
+					"height": "100%",
+					"width": "100%"
+				}, 2000).onfinish = () => {
+					let style = box.style;
+					style.left = `0px`;
+					style.top = `0px`;
+					style.height = "100%"
+					style.width = "100%"
+				}
+			}, 3333);
+		}
+	}
+
 	setTimeout(function () {
 		// Sets the first slot to reveal after 500 ms
 		// - Owen
@@ -109,7 +157,7 @@ function DoSpin() {
 		// Sets the second slot to reveal after 1000 ms
 		// - Owen
 		document.getElementById('SlotImage2').src = `assets/img/slots/${slotImage2}.png`;
-		Click.play()
+		Click2.play()
 	}, 1000);
 	setTimeout(function () {
 		// Sets the third slot to reveal after 1500 ms
@@ -118,21 +166,24 @@ function DoSpin() {
 		Click.play()
 		CheckWinner(slotImage1, slotImage2, slotImage3);
 	}, 1500);
-	setTimeout(function () {
-		// Unpresses the button after 1750 ms
-		// - Owen
-		Unclick();
-		UnclickSound.play()
-	}, 1750);
-	setTimeout(function () {
-		// Tries the autospin if you have the "Autoslots" item
-		// - Owen
-		tryAutoSpin()
-	}, 3333);
+	if (smotsCount < 3) {
+		setTimeout(function () {
+			// Unpresses the button after 1750 ms
+			// - Owen
+			Unclick();
+			UnclickSound.play()
+		}, 1750);
+		setTimeout(function () {
+			// Tries the autospin if you have the "Autoslots" item
+			// - Owen
+			tryAutoSpin()
+		}, 3333);
 		// 2222 is a good number
 		// - Lyra
 	// No it's not
 	// - Owen
+}
+
 }
 
 function CheckWinner(x, y, z) {
@@ -405,4 +456,22 @@ function getTodayButton() {
 
 function getTomorrowButton() {
 	return ["You get 500 button bucks.",""]
+}
+
+function registerSmots() {
+	let video = document.getElementById("slots8Video");
+	video.load()
+	video.pause()
+
+	document.onkeydown = function (e) {
+		typedLetters = typedLetters.concat(e.key)
+		if (!"smots".startsWith(typedLetters)) {
+			typedLetters = "";
+			return;
+		}
+		if (typedLetters === "smots") {
+			smots = true;
+			console.warn("smots gaming")
+		}
+	}
 }
