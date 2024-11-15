@@ -26,10 +26,8 @@ window.addEventListener('load', function () {
 	sfxSlider.addEventListener('input', function() {
 		setCookie("sfxSlider",this.value,365*60*60*24);
 	});
+	musicSlider.value=getCookie("musicSlider");
+	sfxSlider.value=getCookie("sfxSlider");
 })
 </script>
 <script src="button.js"></script>
-<script>
-	musicSlider.value=getCookie("musicSlider")
-	sfxSlider.value=getCookie("sfxSlider")
-</script>
