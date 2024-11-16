@@ -456,6 +456,8 @@ function updateJungle() {
 		document.getElementsByClassName("button")[0].textContent = "Farmed"
 		document.getElementsByClassName("button")[0].disabled = true;
 	}
+	document.getElementsByClassName("button")[0].style.visibility="visible"
+
 }
 
 function registerSmots() {
