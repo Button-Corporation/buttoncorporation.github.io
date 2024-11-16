@@ -480,13 +480,13 @@ function registerSmots() {
 
 
 function getTimestamp() {
-	return 1731683588;
+	return 1731751291;
 }
 
 function getTodayButton() {
-	return ["You get 500 button bucks.",""]
+	return ["Your appearance changes into whoever you want, but...","that person dies and nobody remembers what they looked like when they were alive."]
 }
 
 function getTomorrowButton() {
-	return ["Your appearance changes into whoever you want, but...","that person dies and nobody remembers what they looked like when they were alive."]
+	return ["You never need to sleep, but...","you're powered by AA batteries and need someone to change them for you."]
 }
