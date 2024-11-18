@@ -484,9 +484,9 @@ function getTimestamp() {
 }
 
 function getTodayButton() {
-	return ["Your appearance changes into whoever you want, but...","that person dies and nobody remembers what they looked like when they were alive."]
+	return ["You never need to sleep, but...","you're powered by AA batteries and need someone to change them for you."]
 }
 
 function getTomorrowButton() {
-	return ["You never need to sleep, but...","you're powered by AA batteries and need someone to change them for you."]
+	return ["You get $100 every hour, but...", "I dunno"]
 }
