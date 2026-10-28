@@ -256,8 +256,11 @@ function futureChange() {
 }
 
 function buttonClick() {
+	if (IsOutOfMessages()) {
+		return;
+	}
 	let timestamp = getTimestamp();
-	addButtonBucks(500)
+	
 	Click.play()
 	formatChange();
 	setCookie(timestamp, "true", 7 * 24 * 60 * 60);
@@ -412,6 +415,11 @@ function evalCookie() {
 		setCookie("uuid", id, 365*60*60*24);
 	}
 
+	if (IsOutOfMessages()) {
+		formatBreak();
+		return;
+	}
+
 	let cookie = getCookie(getTimestamp());
 	if (hasItem("Eye of the Prophet")) {
 		futureChange();
@@ -479,14 +487,78 @@ function registerSmots() {
 }
 
 
+// You can now queue up daily buttons
+// Should be self explanatory
+
+const LastUpdated=1793161057 // The unix timestamp of when you last updated the buttons
+
+const ButtonLength = 24 * 60 * 60; // 1 day in seconds
+const ButtonQueue = [
+	{
+		Timestamp: LastUpdated,
+		Lines: ["You get to last hit minions, but...", "You have to sell your souls and play League of Legends"],
+	},
+	{
+		Timestamp: LastUpdated+ButtonLength*1,
+		Lines: ["You get games, unlimited games. But...", "No games"],
+	},
+	{
+		Timestamp: LastUpdated+ButtonLength*2,
+		Lines: ["You become immortal.",""],
+	},
+	// Example of the next day's button:
+	// {
+	// 	Timestamp: LastUpdate+ButtonLength*3,
+	// 	Lines: ["Meow but...", "Mrow :3"],
+	// },
+];
+const OutOfMessagesLines = ["Sorry, we're out of buttons right now.", "Check back again later."];
+const SortedButtonQueue = [...ButtonQueue].sort((A, B) => A.Timestamp - B.Timestamp);
+
+function GetButtonIndex() {
+	if (SortedButtonQueue.length == 0) {
+		return -1;
+	}
+	let Now = Math.floor(Date.now() / 1000);
+	let LastButton = SortedButtonQueue[SortedButtonQueue.length - 1];
+	if (Now >= LastButton.Timestamp + ButtonLength) {
+		return -1;
+	}
+	
+	let Index = 0;
+	for (let I = 0; I < SortedButtonQueue.length; I++) {
+		if (SortedButtonQueue[I].Timestamp <= Now) {
+			Index = I;
+		}
+	}
+	return Index;
+}
+
+function IsOutOfMessages() {
+	return GetButtonIndex() == -1;
+}
+
 function getTimestamp() {
-	return 1732346041;
+	let Index = GetButtonIndex();
+	if (Index == -1) {
+		let LastButton = SortedButtonQueue[SortedButtonQueue.length - 1];
+		return LastButton ? LastButton.Timestamp : 0;
+	}
+	return SortedButtonQueue[Index].Timestamp;
 }
 
 function getTodayButton() {
-	return ["You get $100 every hour, but...", "I dunno"]
+	let Index = GetButtonIndex();
+	if (Index == -1) {
+		return OutOfMessagesLines;
+	}
+	return SortedButtonQueue[Index].Lines;
 }
 
 function getTomorrowButton() {
-	return ["Who knows what the next button will be?", ""]
+	let Index = GetButtonIndex();
+	if (Index == -1 || Index + 1 >= SortedButtonQueue.length) {
+		return OutOfMessagesLines;
+	}
+	return SortedButtonQueue[Index + 1].Lines;
 }
