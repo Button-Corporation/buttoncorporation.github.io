@@ -223,7 +223,7 @@ html{
 }
 
 .open-shop-button{
-	margin: 2vh auto;
+	margin: 30vh auto;
 	width: fit-content;
 	text-align: center;
 	font-family: 'Montserrat', sans-serif;
@@ -498,6 +498,55 @@ html{
 .moba-item:hover .tooltiptext {
 	pointer-events: none;
 	visibility: visible;
+}
+
+
+.open-shop-button2{
+	margin: auto auto;
+	padding: 2vh 2vh;
+	width: 30vw;
+	height: 10vh;
+	text-align: center;
+	font-size: 50px;
+
+	color: var(--HextechBlue);
+	font-family: "Cinzel", Georgia, serif;
+	letter-spacing: 0.03em;
+	line-height: 1.5;
+
+	filter:
+		drop-shadow(0 0 6px rgba(10, 200, 185, 0.3))
+		drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+
+	animation: buttonUnclick 0.2s ease forwards;
+	transition: 0.1s;
+}
+
+.open-shop-button2:hover{
+	width: 35vw;
+	transition: 0.1s;
+}
+
+.open-shop-button2::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
+}
+
+.open-shop-button2::after {
+	content: "";
+	position: absolute;
+	inset: var(--HextechBorderWidth);
+	z-index: -1;
+	background:
+		linear-gradient(90deg, transparent, var(--HextechBlue), transparent) top center / 80% 2px no-repeat,
+		linear-gradient(180deg, var(--HextechNavyLight) 0%, var(--HextechBlue) 100%);
+	box-shadow:
+		inset 0 0 0 3px var(--HextechNavy),
+		inset 0 0 0 4px var(--HextechGoldDark),
+		inset 0 0 16px rgba(10, 200, 185, 0.25);
 }
 
 .about-content h1{
