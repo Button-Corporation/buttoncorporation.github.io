@@ -353,7 +353,10 @@ html{
 	position: relative;
 	isolation: isolate;
 	box-sizing: border-box;
-	padding: 16px 20px;
+	margin: auto auto;
+	padding: 2vh 2vh;
+	width: fit-content;
+	text-align: center;
 
 	color: var(--HextechWhite);
 	font-family: "Cinzel", Georgia, serif;
