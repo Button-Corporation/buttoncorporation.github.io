@@ -17,6 +17,7 @@ Error.volume = getSFXVolume();
 OpenShopSound.volume = getSFXVolume();
 JungleSound.volume = getSFXVolume();
 const Items=[
+	"Diamond Sword",
 	"Autoslots",
 	"AutoslotsEX",
 	"Burn",
