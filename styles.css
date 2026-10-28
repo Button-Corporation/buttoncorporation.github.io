@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Righteous&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+JP:wght@100..900&display=swap');
+
 *{
 	margin: 0;
 	padding: 0;
@@ -44,10 +46,25 @@
 	--darkorange: #813405;
 	--gold: #FFD166;
 	--trueblack: #000000;
+
+	/* Hextech Stuff (forgive my PascalCase) */
+	--HextechGold: #c8aa6e;
+	--HextechGoldDark: #785a28;
+	--HextechBlue: #0ac8b9;
+	--HextechNavy: #010a13;
+	--HextechWhite: #f0e6d2;
+	--HextechNavyLight: #091428;
+	--HextechText: #f0e6d2;
+	--HextechBevel: 12px;
+	--HextechBorderWidth: 2px;
+	--Bevel: 10px;
+	--BorderWidth: 2px;
+	--HextechInnerBevel: calc(var(--HextechBevel) - var(--HextechBorderWidth) * 0.586);
 }
 
 html{
 	background: linear-gradient(135deg, var(--cyan) 0%, var(--lavendar) 100%);
+	font-family: 'Montserrat', sans-serif;
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
@@ -83,11 +100,23 @@ html{
 
 .slotsfull {
 	color: var(--white);
+	font-family: 'Montserrat', sans-serif;
 	background: var(--black);
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
 	color: #28262C;
+}
+
+.hexfull {
+	font-family: "Cinzel", Georgia, serif;
+	color: var(--HextechWhite);
+	background:
+		linear-gradient(90deg, transparent, var(--HextechBlue), transparent) top center / 80% 2px no-repeat,
+		linear-gradient(180deg, var(--HextechNavyLight) 0%, var(--HextechNavy) 100%);
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
 }
 
 .topnav ul {
@@ -175,6 +204,14 @@ html{
 	animation: dropIn 0.5s ease forwards;
 }
 
+.about-content {
+	margin: 25vh;
+	width: fit-content;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Normal Shop Styling */
+
 .shopbox {
 	border-radius: 25px;
 	background-color: var(--cyan);
@@ -182,12 +219,6 @@ html{
 	padding: 2vh 2vh;
 	width: fit-content;
 	text-align: center;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.about-content {
-	margin: 25vh;
-	width: fit-content;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -203,18 +234,16 @@ html{
 	margin: 2vh auto;
 	width: fit-content;
 	text-align: center;
-	font-family: 'Montserrat', sans-serif;
-	color: var(--white);
 	animation: dropIn 0.5s ease forwards;
 }
 
 .shop-content h1{
-	margin-bottom: 5vh;
-	font-size: 50px;
+	margin-bottom: 1vh;
+	font-size: 30px;
 }
 
 .shop-content p{
-	margin-bottom: 10vh;
+	margin-bottom: 1vh;
 	font-size: 22px;
 }
 
@@ -241,6 +270,7 @@ html{
 }
 
 .weapon-item:hover .tooltiptext {
+	pointer-events: none;
 	visibility: visible;
 }
 
@@ -267,6 +297,7 @@ html{
 }
 
 .vitality-item:hover .tooltiptext {
+	pointer-events: none;
 	visibility: visible;
 }
 
@@ -293,6 +324,134 @@ html{
 }
 
 .spirit-item:hover .tooltiptext {
+	pointer-events: none;
+	visibility: visible;
+}
+
+
+.secret-shop-content{
+	margin: 2vh auto;
+	width: fit-content;
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	color: var(--white);
+	animation: dropIn 0.5s ease forwards;
+}
+
+.moba-item {
+	position: relative;
+	display: inline-block;
+	margin: auto auto;
+	padding: 2px 2px;
+	width: fit-content;
+	height: fit-content;
+
+	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
+}
+
+.shopbox2 {
+	position: relative;
+	isolation: isolate;
+	box-sizing: border-box;
+	padding: 16px 20px;
+
+	color: var(--HextechWhite);
+	font-family: "Cinzel", Georgia, serif;
+	letter-spacing: 0.03em;
+	line-height: 1.5;
+
+	filter:
+		drop-shadow(0 0 6px rgba(10, 200, 185, 0.3))
+		drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+}
+
+.shopbox2::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
+}
+
+.shopbox2::after {
+	content: "";
+	position: absolute;
+	inset: var(--HextechBorderWidth);
+	z-index: -1;
+	background:
+		linear-gradient(90deg, transparent, var(--HextechBlue), transparent) top center / 80% 2px no-repeat,
+		linear-gradient(180deg, var(--HextechNavyLight) 0%, var(--HextechNavy) 100%);
+	box-shadow:
+		inset 0 0 0 3px var(--HextechNavy),
+		inset 0 0 0 4px var(--HextechGoldDark),
+		inset 0 0 16px rgba(10, 200, 185, 0.25);
+}
+
+.moba-item .tooltiptext {
+	visibility: hidden;
+	width: 40vh;
+	height: fit-content;
+	padding: 10px 14px;
+	box-sizing: border-box;
+
+	color: var(--HextechWhite);
+	font-family: "Cinzel", Georgia, serif;
+	font-size: 0.9em;
+	letter-spacing: 0.03em;
+	line-height: 1.4;
+	text-align: center;
+	text-shadow: 0 1px 2px #000;
+
+	filter:
+		drop-shadow(0 0 6px rgba(10, 200, 185, 0.35))
+		drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+
+	position: absolute;
+	z-index: 1;
+	top: 100%;
+	left: 50%;
+	margin-left: -20vh;
+}
+
+.moba-item .tooltiptext::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
+	clip-path: polygon(
+		var(--Bevel) 0, calc(100% - var(--Bevel)) 0,
+		100% var(--Bevel), 100% calc(100% - var(--Bevel)),
+		calc(100% - var(--Bevel)) 100%, var(--Bevel) 100%,
+		0 calc(100% - var(--Bevel)), 0 var(--Bevel)
+	);
+}
+
+.moba-item .tooltiptext::after {
+	content: "";
+	position: absolute;
+	inset: var(--BorderWidth);
+	z-index: -1;
+
+	background:
+		linear-gradient(90deg, transparent, var(--HextechBlue), transparent) top center / 80% 2px no-repeat,
+		linear-gradient(180deg, var(--HextechNavyLight) 0%, var(--HextechNavy) 100%);
+
+	box-shadow:
+		inset 0 0 0 3px var(--HextechNavy),
+		inset 0 0 0 4px var(--HextechGoldDark),
+		inset 0 0 14px rgba(10, 200, 185, 0.25);
+
+	clip-path: polygon(
+		8.83px 0, calc(100% - 8.83px) 0,
+		100% 8.83px, 100% calc(100% - 8.83px),
+		calc(100% - 8.83px) 100%, 8.83px 100%,
+		0 calc(100% - 8.83px), 0 8.83px
+	);
+}
+
+.moba-item:hover .tooltiptext {
+	pointer-events: none;
 	visibility: visible;
 }
 

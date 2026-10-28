@@ -37,6 +37,8 @@ const ItemPrices = {
 	"Heartbreak":50,
 	"Eye of the Prophet":100,
 	"Bad Time":20,
+	"Diamond Sword":35,
+	"Lovey Dovey":25,
 };
 const ItemCooldowns = {
 	"Autoslots":5*60, // 5 minutes
@@ -48,6 +50,8 @@ const ItemCooldowns = {
 	"Heartbreak":10*60, // 10 minutes
 	"Eye of the Prophet":2*60, // 2 minutes
 	"Bad Time":10*60, // 10 minutes
+	"Lovey Dovey":5*60,
+	"Diamond Sword":2*60,
 };
 
 let NumberOfWins = 0
@@ -331,10 +335,35 @@ function buyItem(Name) {
 	updateShop();
 }
 
+function buyMobaItem(Name) {
+	if (hasItem(Name)) {
+		displayError("You already own this item!");
+		return;
+	}
+	if (getGold() < Math.round(ItemPrices[Name]*10)) {
+		displayError("You don't have enough Button Bucks!");
+		return;
+	}
+
+	CashSound.play();
+	playMerchantVoiceline("buy",6)
+	setCookie("Item: "+Name, "true", ItemCooldowns[Name]);
+	addGold(-Math.round(ItemPrices[Name]*10));
+	updateShop2();
+}
+
 function updateShop() {
 	for (var i = Items.length - 1; i >= 0; i--) {
 		if (hasItem(Items[i])) {
 			document.getElementsByClassName("Item: "+Items[i])[0].src="assets/img/Items/Purchased.png";
+		}
+	}
+}
+
+function updateShop2() {
+	for (var i = Items.length - 1; i >= 0; i--) {
+		if (hasItem(Items[i])) {
+			document.getElementsByClassName("Item: "+Items[i])[0].src="assets/img/Items2/Purchased.png";
 		}
 	}
 }
@@ -356,6 +385,9 @@ function getButtonBucks() {
 function getGold() {
 	let Gold=getCookie("Gold")
 	if (Gold=="") {
+		return 0
+	}
+	if (Gold=="NaN") {
 		return 0
 	}
 	else {

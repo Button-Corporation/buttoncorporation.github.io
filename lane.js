@@ -105,6 +105,7 @@
 	function SpawnMinion(Team, Big) {
 		var R = Big ? Config.BaseRadius * Config.BigScale : Config.BaseRadius;
 		var MaxHp = Big ? Config.BaseHp * Config.BigHpScale : Config.BaseHp;
+		MaxHp=HasItem("Lovey Dovey") ? MaxHp : MaxHp*2,
 		var Spawned = {
 			Team: Team,
 			Dir: Team === 'Ally' ? 1 : -1,
@@ -390,7 +391,7 @@
 		var Frac = Math.max(0, M.Hp / M.MaxHp);
 
 		Ctx.fillStyle = Colors.BarBack;
-		Ctx.fillRect(X0, Y0, BarW, BarH);
+		Ctx.fillRect(X0-1, Y0-1, BarW+2, BarH+2);
 
 		if (M.Team === 'Ally') {
 			Ctx.fillStyle = Colors.HpGreen;
