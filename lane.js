@@ -59,7 +59,6 @@
 	var Pending = [];
 	var GameTime = 0;
 	var WaveClock = 0;
-	var Gold = 0;
 	var Shown = { Gold: -1, Stats: '', Timer: -1 };
 
 	function RandInt(Min, Max) {
@@ -310,12 +309,11 @@
 		var Target = FindExecutable(Point.X, Point.Y);
 		if (!Target) return;
 		var Reward = RandInt(Config.GoldMin, Config.GoldMax) * (Target.Big ? 2 : 1);
-		Gold += Reward;
+		addGold(Reward)
 		CashSound.currentTime=0
 		CashSound.play()
 		Target.Dead = true;
 		AddRing(Target, Colors.Gold);
-		addButtonBucks((Target.Big ? 2 : 1))
 		AddText(Target.X, Target.Y - Target.R - 16, '+' + Reward, Colors.Gold, Target.Big ? 20 : 16, 0.9);
 		BumpGold();
 	});
@@ -449,9 +447,9 @@
 	}
 
 	function SyncHud() {
-		if (Shown.Gold !== Gold) {
-			Shown.Gold = Gold;
-			GoldEl.textContent = String(Gold);
+		if (Shown.Gold !== getGold()) {
+			Shown.Gold = getGold();
+			GoldEl.textContent = String(getGold());
 		}
 	}
 

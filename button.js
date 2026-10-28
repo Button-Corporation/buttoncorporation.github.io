@@ -353,6 +353,16 @@ function getButtonBucks() {
 	}
 }
 
+function getGold() {
+	let Gold=getCookie("Gold")
+	if (Gold=="") {
+		return 0
+	}
+	else {
+		return Number(Gold)
+	}
+}
+
 function getSFXVolume() {
 	let Volume=getCookie("sfxSlider")
 	if (Volume=="") {
@@ -403,6 +413,15 @@ function addButtonBucks(number) {
 	buttonBucksChangeTimeout = setTimeout(() => {
 		document.getElementById("button-bucks-change").innerText = ""
 	},2000);
+}
+
+function addGold(number) {
+	let Gold = getGold();
+
+	Gold+=number;
+
+	// Gold will expire after 1 year of inactivity I guess
+	setCookie("Gold",String(Gold),365*60*60*24)
 }
 
 document.getElementById("button-bucks").innerText = getButtonBucks().toString();
