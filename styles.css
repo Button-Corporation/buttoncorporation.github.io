@@ -342,11 +342,6 @@ html{
 	position: relative;
 	display: inline-block;
 	margin: auto auto;
-	padding: 2px 2px;
-	width: fit-content;
-	height: fit-content;
-
-	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
 }
 
 .shopbox2 {
