@@ -341,7 +341,7 @@ function buyMobaItem(Name) {
 		return;
 	}
 	if (getGold() < Math.round(ItemPrices[Name]*10)) {
-		displayError("You don't have enough Button Bucks!");
+		displayError("You don't have enough Gold!");
 		return;
 	}
 
@@ -454,9 +454,11 @@ function addGold(number) {
 
 	// Gold will expire after 1 year of inactivity I guess
 	setCookie("Gold",String(Gold),365*60*60*24)
+	document.getElementById("gold").innerText = Gold.toString();
 }
 
 document.getElementById("button-bucks").innerText = getButtonBucks().toString();
+document.getElementById("gold").innerText = getGold().toString();
 ExpectedButtonBucks = getButtonBucks();
 
 function evalCookie() {

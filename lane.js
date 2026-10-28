@@ -450,7 +450,7 @@
 	function SyncHud() {
 		if (Shown.Gold !== getGold()) {
 			Shown.Gold = getGold();
-			GoldEl.textContent = String(getGold());
+			//GoldEl.textContent = String(getGold());
 		}
 	}
 

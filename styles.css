@@ -344,6 +344,53 @@ html{
 	margin: auto auto;
 }
 
+.sticky-bottom-right {
+	/* This is the magic line that locks it to the viewport */
+	position: fixed; 
+
+	/* Push it to the bottom-right corner */
+	bottom: 20px; 
+	right: 20px;  
+
+	/* Ensures it stays on top of other scrolling content */
+	z-index: 9999; 
+
+	margin: auto auto;
+	padding: 2vh 2vh;
+	width: fit-content;
+	text-align: center;
+
+	color: var(--HextechWhite);
+	font-family: "Cinzel", Georgia, serif;
+	letter-spacing: 0.03em;
+	line-height: 1.5;
+
+	filter:
+		drop-shadow(0 0 6px rgba(10, 200, 185, 0.3))
+		drop-shadow(0 6px 10px rgba(0, 0, 0, 0.7));
+}
+.sticky-bottom-right::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -2;
+	background: linear-gradient(180deg, var(--HextechGold), var(--HextechGoldDark));
+}
+
+.sticky-bottom-right::after {
+	content: "";
+	position: absolute;
+	inset: var(--HextechBorderWidth);
+	z-index: -1;
+	background:
+		linear-gradient(90deg, transparent, var(--HextechBlue), transparent) top center / 80% 2px no-repeat,
+		linear-gradient(180deg, var(--HextechNavyLight) 0%, var(--HextechNavy) 100%);
+	box-shadow:
+		inset 0 0 0 3px var(--HextechNavy),
+		inset 0 0 0 4px var(--HextechGoldDark),
+		inset 0 0 16px rgba(10, 200, 185, 0.25);
+}
+
 .shopbox2 {
 	position: relative;
 	isolation: isolate;
