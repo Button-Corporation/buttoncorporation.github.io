@@ -21,7 +21,7 @@ const Items=[
 	"Autoslots",
 	"AutoslotsEX",
 	"Burn",
-	"Peepo",
+	"Peepo2X",
 	"Soul",
 	"Speed Jungler",
 	"Heartbreak",
@@ -32,7 +32,7 @@ const ItemPrices = {
 	"Autoslots":5,
 	"AutoslotsEX":35,
 	"Burn":100,
-	"Peepo":80,
+	"Peepo2X":80,
 	"Soul":25,
 	"Speed Jungler":40,
 	"Heartbreak":50,
@@ -45,7 +45,7 @@ const ItemCooldowns = {
 	"Autoslots":5*60, // 5 minutes
 	"AutoslotsEX":30*60, // 30 minutes
 	"Burn":10*60, // 10 minutes
-	"Peepo":10*60, // 10 minutes
+	"Peepo2X":10*60, // 10 minutes
 	"Soul":10*60, // 10 minutes
 	"Speed Jungler":60*60, // 1 hour
 	"Heartbreak":10*60, // 10 minutes
@@ -90,13 +90,13 @@ function DoSpin() {
 		SlotPattern = [0,1,1,1,2,2,2]
 	}
 
-	if (hasItem("Peepo")) {
+	if (hasItem("Peepo2X")) {
 		// Not technically doubled chance, but it's easier to just say "double"
 		// - Owen
 		SlotPattern = [0,0,1,1,1,2,2,2,3,3,3]
 	}
 
-	if (hasItem("Peepo") && hasItem("Heartbreak")) {
+	if (hasItem("Peepo2X") && hasItem("Heartbreak")) {
 		// Not technically worth it
 		// but players should at least feel like they haven't been scammed
 		// - Owen
