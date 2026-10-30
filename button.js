@@ -558,7 +558,7 @@ const ButtonQueue = [
 	},
 	{
 		Timestamp: LastUpdated+ButtonLength*2,
-		Lines: ["You become immortal.",""],
+		Lines: ["You cannot die.",""],
 	},
 	// Example of the next day's button:
 	// {
