@@ -560,6 +560,10 @@ const ButtonQueue = [
 		Timestamp: LastUpdated+ButtonLength*2,
 		Lines: ["You cannot die.",""],
 	},
+	{
+		Timestamp: LastUpdated+ButtonLength*3,
+		Lines: ["If you press the button, you die a hero.","If you do not, you live long enough to see yourself become the villain."],
+	},
 	// Example of the next day's button:
 	// {
 	// 	Timestamp: LastUpdate+ButtonLength*3,
