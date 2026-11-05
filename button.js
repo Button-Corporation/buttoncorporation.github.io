@@ -568,6 +568,10 @@ const ButtonQueue = [
 		Timestamp: LastUpdated+ButtonLength*4,
 		Lines: ["Owen will keep making daily buttons. But...","This will eat into his already limited free time."],
 	},
+	{
+		Timestamp: LastUpdated+ButtonLength*5,
+		Lines: ["You get a million dollars. But...","Pressing the button is a lot of work, isn't it?"],
+	},
 	// Example of the next day's button:
 	// {
 	// 	Timestamp: LastUpdate+ButtonLength*3,
